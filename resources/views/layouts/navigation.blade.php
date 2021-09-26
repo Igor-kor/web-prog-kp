@@ -61,7 +61,10 @@
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Войти</a>
+                    <div class="mx-auto">
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Войти</a>
+                        <a href="{{ route('register') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Регистрация</a>
+                    </div>
                 @endauth
             </div>
 
@@ -109,6 +112,8 @@
                     @else
                         <a href="{{ route('login') }}"
                            class="text-sm text-gray-700 dark:text-gray-500 underline">Войти</a>
+                        <a href="{{ route('register') }}"
+                           class="text-sm text-gray-700 dark:text-gray-500 underline">Регистрация</a>
                     @endauth
                 </div>
                 <div class="font-medium text-sm text-gray-500">
