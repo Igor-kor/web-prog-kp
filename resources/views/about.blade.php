@@ -9,7 +9,7 @@
             class="relative flex items-top justify-center bg-gray-900 sm:items-center max-h-content">
             <div>
                 <p class="header-text">Курсовой проект по дисциплине: Веб-программирование</p>
-                <p class="description-text">Yа тему: «Разработка веб – приложения коллекции монет/марок»</p>
+                <p class="description-text">На тему: «Разработка веб – приложения коллекции монет/марок»</p>
                 <p class="description-text">Автор: Шарангия Игорь Сергеевич</p>
                 <p class="description-text">Студент: 3 курса</p>
                 <p class="description-text">Группы: 19-ЗКБс-ПР1</p>

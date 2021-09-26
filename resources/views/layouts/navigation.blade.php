@@ -19,6 +19,9 @@
                         <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
                             {{ __('Marks') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
+                            {{ __('Coins') }}
+                        </x-nav-link>
                     @endauth
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}
@@ -87,6 +90,9 @@
             @auth
                 <x-responsive-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
                     {{ __('Marks') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
+                    {{ __('Coins') }}
                 </x-responsive-nav-link>
             @endauth
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">

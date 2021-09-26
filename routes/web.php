@@ -18,8 +18,12 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/marks', function () {
-    return view('marks');
+    return view('/marks/marks');
 })->middleware(['auth'])->name('marks');
+
+Route::get('/coins', function () {
+    return view('/coins/coins');
+})->middleware(['auth'])->name('coins');
 
 Route::get('/about', function () {
     return view('about');
