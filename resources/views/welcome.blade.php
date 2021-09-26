@@ -36,9 +36,11 @@
                 </div>
             @endif
             <div>
-                <p style="font-size: x-large;color: #e2e8f0">Курсовой проект по предмету: Веб-программирование</p>
-                <p  style="font-size: large;color: #e2e8f0">на тему: Коллекция марок/монет</p>
-                <p  style="font-size: large;color: #e2e8f0">Автор: Шарангия Игорь</p>
+                <p style="font-size: x-large;color: #e2e8f0">Курсовой проект по дисциплине: Веб-программирование</p>
+                <p  style="font-size: large;color: #e2e8f0">на тему: «Разработка веб – приложения коллекции монет/марок»</p>
+                <p  style="font-size: large;color: #e2e8f0">Автор: Шарангия Игорь Сергеевич</p>
+                <p  style="font-size: large;color: #e2e8f0">Студент: 3 курса</p>
+                <p  style="font-size: large;color: #e2e8f0">Группы: 19-ЗКБс-ПР1</p>
             </div>
         </div>
     </body>
