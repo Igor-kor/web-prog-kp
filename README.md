@@ -21,6 +21,16 @@
 
 ## Установка проекта на сервер
 
+- composer require laravel/ui
+
+- php artisan ui vue --auth
+
+- npm install
+
+- npm install laravel-mix@latest --save-dev
+
+- npm run dev
+
 ## Настрока БД
 
 ## Сборка стилей

@@ -404,7 +404,30 @@ video {
 main{
     display: flex;
     flex-direction: column;
-    height:90vh;
     margin: 0;
     padding: 0;
+}
+
+.coin-block{
+    width: 200px;
+    display: inline-block;
+    border-width: 1px;
+    border-color: #f5f4f4;
+    border-radius: 6px;
+    background-color: #f5f4f4;
+    align-content: center;
+    text-align: center;
+}
+
+.coin-block img{
+    width: 250px;
+}
+
+.coin-block:hover{
+    border-width: 3px;
+    border-color: #5b5959;
+}
+
+.coin-page img{
+    width: 550px;
 }

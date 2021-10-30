@@ -1,9 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('About') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
+@section('content')
     <div class="antialiased max-h-content bg-gray-900">
         <div
             class="relative flex items-top justify-center bg-gray-900 sm:items-center max-h-content">
@@ -18,4 +14,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

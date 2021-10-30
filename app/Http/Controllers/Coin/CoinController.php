@@ -15,7 +15,11 @@ class CoinController extends Controller
      */
     public function index()
     {
-        //
+        $coin = Coin::all();
+        if(!$coin){
+            abort(404,'Coin not found!');
+        }
+        return $coin;
     }
 
     /**
