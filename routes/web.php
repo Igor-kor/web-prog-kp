@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
+Route::get('/coin/{id}', [App\Http\Controllers\Coin\CoinsController::class, 'getCoin'])->name('coin');
 Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
 
 Route::get('/about', function () {

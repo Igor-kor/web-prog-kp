@@ -15,17 +15,17 @@ class CreateCoinsTable extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
-            $table->string('Год');
-            $table->string('Страна');
-            $table->string('Сохранность');
-            $table->string('Номинал');
-            $table->string('Тип монеты');
-            $table->string('Материал');
-            $table->string('Диаметр');
-            $table->string('Вес монеты');
-            $table->string('Тираж');
-            $table->string('Гурт');
-            $table->string('Особенности');
+            $table->string('Year');
+            $table->string('Country');
+            $table->string('Safety');
+            $table->string('Denomination');
+            $table->string('Coin_type');
+            $table->string('Material');
+            $table->string('Diameter');
+            $table->string('Coin_weight');
+            $table->string('Circulation');
+            $table->string('Edge');
+            $table->string('Features');
             $table->timestamps();
         });
     }
