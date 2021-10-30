@@ -20,13 +20,6 @@ Route::get('/', function () {
 Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
 Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
 
-Route::apiResources(
-    [
-        'coin'=>App\Http\Controllers\Coin\CoinController::class,
-        'mark'=>App\Http\Controllers\Mark\MarkController::class
-    ]
-);
-
 Route::get('/about', function () {
     return view('about');
 })->name('about');

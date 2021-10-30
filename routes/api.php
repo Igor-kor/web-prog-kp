@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources(
+    [
+        'coin'=>App\Http\Controllers\Coin\CoinController::class,
+        'mark'=>App\Http\Controllers\Mark\MarkController::class
+    ]
+);
