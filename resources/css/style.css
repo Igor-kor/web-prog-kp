@@ -420,7 +420,9 @@ main{
 }
 
 .coin-block img{
-    width: 250px;
+    margin: 5px;
+    width: 200px;
+    background-size:cover;
 }
 
 .coin-block:hover{
