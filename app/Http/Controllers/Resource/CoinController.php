@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mark;
+namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Models\Coin;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
-class MarkController extends Controller
+class CoinController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,15 @@ class MarkController extends Controller
      */
     public function index()
     {
-        //
+        $coin = Coin::get();
+        if(!$coin){
+            abort(404,'Coin not found!');
+        }
+        foreach ($coin as $item){
+            $item->country;
+            $item->image;
+        }
+        return $coin;
     }
 
     /**
@@ -46,7 +56,11 @@ class MarkController extends Controller
      */
     public function show($id)
     {
-        //
+        $coin = Coin::find($id);
+        if(!$coin){
+            abort(404,'Coin not found!');
+        }
+        return $coin;
     }
 
     /**

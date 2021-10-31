@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CoinUser extends Model
 {
     use HasFactory;
+
+    public function coin()
+    {
+        return $this->belongsTo(Coin::class);
+    }
 }

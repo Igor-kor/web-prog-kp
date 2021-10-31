@@ -25,6 +25,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/mycollectcoin', function () {
+    return view('coins.my_coins');
+})->name('mycollectcoin');
+
 require __DIR__.'/auth.php';
 
 

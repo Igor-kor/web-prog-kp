@@ -37,12 +37,15 @@
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
+                            {{ __('Marks') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
+                            {{ __('Coins') }}
+                        </x-nav-link>
                         @auth
-                            <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
-                                {{ __('Marks') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
-                                {{ __('Coins') }}
+                            <x-nav-link :href="route('mycollectcoin')" :active="request()->routeIs('mycollectcoin')">
+                                {{ __('My Coins Colection') }}
                             </x-nav-link>
                         @endauth
                         <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
