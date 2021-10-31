@@ -42,3 +42,5 @@
 31.10.21
 https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5_%D0%BC%D0%BE%D0%BD%D0%B5%D1%82
 
+https://laravel.com/docs/8.x/migrations
+

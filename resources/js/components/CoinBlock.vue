@@ -1,18 +1,17 @@
 <template>
     <div class="coin-block">
         <a v-bind:href="'/coin/'+ data.id">
-            <img src="/img/dogecoin-logo.jpg" alt="coin">
-            <p>Год {{ data.Year }}</p>
-            <p>Страна {{ data.Country }}</p>
-            <p>Сохранность {{ data.Safety }}</p>
-            <p>Номинал {{ data.Denomination }}</p>
-            <p>Тип монеты {{ data.Coin_type }}</p>
-            <p>Материал {{ data.Material }}</p>
-            <p>Диаметр {{ data.Diameter }}</p>
-            <p>Вес монеты {{ data.Coin_weight }}</p>
-            <p>Тираж {{ data.Circulation }}</p>
-            <p>Гурт {{ data.Edge }}</p>
-            <p>Особенности {{ data.Features }}</p>
+            <img v-bind:src=data.image.url alt="coin">
+            <p>Год {{ data.year }}</p>
+            <p>Страна {{ data.country.name }}</p>
+            <p>Номинал {{ data.denomination }}</p>
+            <p>Тип монеты {{ data.coin_type }}</p>
+            <p>Материал {{ data.material }}</p>
+            <p>Диаметр {{ data.diameter }}</p>
+            <p>Вес монеты {{ data.coin_weight }}</p>
+            <p>Тираж {{ data.circulation }}</p>
+            <p>Гурт {{ data.edge }}</p>
+            <p>Особенности {{ data.features }}</p>
         </a>
     </div>
 </template>
@@ -26,48 +25,37 @@ export default {
             id: {
                 defoult: "NULL"
             },
-            Year: {
-                type: String,
+            image: {
                 defoult: "NULL"
             },
-            Country: {
-                type: String,
+            year: {
                 defoult: "NULL"
             },
-            Safety: {
-                type: String,
+            country: {
                 defoult: "NULL"
             },
-            Denomination: {
-                type: String,
+            denomination: {
                 defoult: "NULL"
             },
-            Coin_type: {
-                type: String,
+            coin_type: {
                 defoult: "NULL"
             },
-            Diameter: {
-                type: String,
+            diameter: {
                 defoult: "NULL"
             },
-            Coin_weight: {
-                type: String,
+            coin_weight: {
                 defoult: "NULL"
             },
-            Circulation: {
-                type: String,
+            circulation: {
                 defoult: "NULL"
             },
-            Features: {
-                type: String,
+            features: {
                 defoult: "NULL"
             },
-            Edge: {
-                type: String,
+            edge: {
                 defoult: "NULL"
             },
-            Material: {
-                type: String,
+            material: {
                 defoult: "NULL"
             }
         }

@@ -2085,7 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2093,48 +2092,37 @@ __webpack_require__.r(__webpack_exports__);
       id: {
         defoult: "NULL"
       },
-      Year: {
-        type: String,
+      image: {
         defoult: "NULL"
       },
-      Country: {
-        type: String,
+      year: {
         defoult: "NULL"
       },
-      Safety: {
-        type: String,
+      country: {
         defoult: "NULL"
       },
-      Denomination: {
-        type: String,
+      denomination: {
         defoult: "NULL"
       },
-      Coin_type: {
-        type: String,
+      coin_type: {
         defoult: "NULL"
       },
-      Diameter: {
-        type: String,
+      diameter: {
         defoult: "NULL"
       },
-      Coin_weight: {
-        type: String,
+      coin_weight: {
         defoult: "NULL"
       },
-      Circulation: {
-        type: String,
+      circulation: {
         defoult: "NULL"
       },
-      Features: {
-        type: String,
+      features: {
         defoult: "NULL"
       },
-      Edge: {
-        type: String,
+      edge: {
         defoult: "NULL"
       },
-      Material: {
-        type: String,
+      material: {
         defoult: "NULL"
       }
     }
@@ -37742,29 +37730,27 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "coin-block" }, [
     _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
-      _c("img", { attrs: { src: "/img/dogecoin-logo.jpg", alt: "coin" } }),
+      _c("img", { attrs: { src: _vm.data.image.url, alt: "coin" } }),
       _vm._v(" "),
-      _c("p", [_vm._v("Год " + _vm._s(_vm.data.Year))]),
+      _c("p", [_vm._v("Год " + _vm._s(_vm.data.year))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Страна " + _vm._s(_vm.data.Country))]),
+      _c("p", [_vm._v("Страна " + _vm._s(_vm.data.country.name))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Сохранность " + _vm._s(_vm.data.Safety))]),
+      _c("p", [_vm._v("Номинал " + _vm._s(_vm.data.denomination))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Номинал " + _vm._s(_vm.data.Denomination))]),
+      _c("p", [_vm._v("Тип монеты " + _vm._s(_vm.data.coin_type))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Тип монеты " + _vm._s(_vm.data.Coin_type))]),
+      _c("p", [_vm._v("Материал " + _vm._s(_vm.data.material))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Материал " + _vm._s(_vm.data.Material))]),
+      _c("p", [_vm._v("Диаметр " + _vm._s(_vm.data.diameter))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Диаметр " + _vm._s(_vm.data.Diameter))]),
+      _c("p", [_vm._v("Вес монеты " + _vm._s(_vm.data.coin_weight))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Вес монеты " + _vm._s(_vm.data.Coin_weight))]),
+      _c("p", [_vm._v("Тираж " + _vm._s(_vm.data.circulation))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Тираж " + _vm._s(_vm.data.Circulation))]),
+      _c("p", [_vm._v("Гурт " + _vm._s(_vm.data.edge))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Гурт " + _vm._s(_vm.data.Edge))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Особенности " + _vm._s(_vm.data.Features))]),
+      _c("p", [_vm._v("Особенности " + _vm._s(_vm.data.features))]),
     ]),
   ])
 }
