@@ -2156,7 +2156,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _CoinBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoinBlock */ "./resources/js/components/CoinBlock.vue");
 //
 //
 //
@@ -2167,7 +2166,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2187,9 +2185,6 @@ __webpack_require__.r(__webpack_exports__);
         _this.coins = res.data;
       });
     }
-  },
-  comments: {
-    CoinBlock: _CoinBlock__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 

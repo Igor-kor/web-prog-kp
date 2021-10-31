@@ -10,7 +10,6 @@
 
 <script>
 import axios from "axios";
-import CoinBlock from "./CoinBlock";
 
 export default {
     data () {
@@ -29,9 +28,6 @@ export default {
                     this.coins = res.data;
                 });
         }
-    },
-    comments:{
-        CoinBlock
     }
 }
 </script>
