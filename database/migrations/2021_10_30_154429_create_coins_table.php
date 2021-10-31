@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Image;
+use App\Models\Country;
 
 class CreateCoinsTable extends Migration
 {
@@ -15,17 +17,16 @@ class CreateCoinsTable extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
-            $table->string('Year');
-            $table->string('Country');
-            $table->string('Safety');
-            $table->string('Denomination');
-            $table->string('Coin_type');
-            $table->string('Material');
-            $table->string('Diameter');
-            $table->string('Coin_weight');
-            $table->string('Circulation');
-            $table->string('Edge');
-            $table->string('Features');
+            $table->foreignIdFor(Image::class)->nullable(); // Изображения
+            $table->foreignIdFor(Country::class)->nullable(); // страна
+            $table->string('year')->nullable();// год, может быть до н.э., поэтому текст
+            $table->string('denomination')->nullable(); // номинал
+            $table->string('material')->nullable(); // материал
+            $table->string('diameter')->nullable(); // диаметр
+            $table->string('coin_weight')->nullable(); // вес монеты
+            $table->string('circulation')->nullable(); // тираж
+            $table->string('edge')->nullable(); // Гурт
+            $table->string('features')->nullable(); // Особенности
             $table->timestamps();
         });
     }
