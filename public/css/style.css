@@ -1,0 +1,10 @@
+.navbar-nav a{
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-nav a:hover, .navbar-nav a:active {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.9);
+}
+

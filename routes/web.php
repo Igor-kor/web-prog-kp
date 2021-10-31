@@ -27,7 +27,7 @@ Route::get('/about', function () {
 
 Route::get('/mycollectcoin', function () {
     return view('coins.my_coins');
-})->name('mycollectcoin');
+})->middleware('auth')->name('mycollectcoin');
 
 require __DIR__.'/auth.php';
 
