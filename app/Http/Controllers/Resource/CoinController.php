@@ -45,7 +45,20 @@ class CoinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->get('params');
+        $coin = new Coin;
+        $coin->year = $data['year'];
+        $coin->country_id = 1;
+        $coin->image_id = 1;
+        $coin->denomination = $data['denomination'];
+        $coin->material = $data['material'];
+        $coin->diameter = $data['diameter'];
+        $coin->coin_weight = $data['coin_weight'];
+        $coin->circulation = $data['circulation'];
+        $coin->edge = $data['edge'];
+        $coin->features = $data['features'];
+        $coin->save();
+        return response($coin->id,200);
     }
 
     /**

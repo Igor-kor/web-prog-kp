@@ -21,8 +21,9 @@ window.Vue = require('vue').default;
 
 Vue.component('coin-block', require('./components/CoinBlock.vue').default);
 Vue.component('coin-list', require('./components/CoinsList.vue').default);
-Vue.component('coin-user-list', require('./components/CoinUserList').default);
-Vue.component('coin-user-block', require('./components/CoinUserBlock').default);
+Vue.component('coin-user-list', require('./components/CoinUserList.vue').default);
+Vue.component('coin-user-block', require('./components/CoinUserBlock.vue').default);
+Vue.component('coin-new', require('./components/CoinNew.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

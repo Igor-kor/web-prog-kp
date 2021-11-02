@@ -2131,6 +2131,72 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "CoinNew",
+  data: function data() {
+    return {
+      data: {
+        image: {
+          url: ' '
+        },
+        year: '1999',
+        country: {
+          name: 'russia'
+        },
+        denomination: 'rubl',
+        material: '',
+        diameter: '',
+        coin_weight: '',
+        circulation: '',
+        edge: '',
+        features: ''
+      }
+    };
+  },
+  methods: {
+    saveNewCoin: function saveNewCoin() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coin/', {
+        params: this.data
+      }).then(function (res) {
+        console.log(res.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinUserBlock.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinUserBlock.vue?vue&type=script&lang=js& ***!
@@ -2292,8 +2358,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 Vue.component('coin-block', __webpack_require__(/*! ./components/CoinBlock.vue */ "./resources/js/components/CoinBlock.vue")["default"]);
 Vue.component('coin-list', __webpack_require__(/*! ./components/CoinsList.vue */ "./resources/js/components/CoinsList.vue")["default"]);
-Vue.component('coin-user-list', __webpack_require__(/*! ./components/CoinUserList */ "./resources/js/components/CoinUserList.vue")["default"]);
-Vue.component('coin-user-block', __webpack_require__(/*! ./components/CoinUserBlock */ "./resources/js/components/CoinUserBlock.vue")["default"]);
+Vue.component('coin-user-list', __webpack_require__(/*! ./components/CoinUserList.vue */ "./resources/js/components/CoinUserList.vue")["default"]);
+Vue.component('coin-user-block', __webpack_require__(/*! ./components/CoinUserBlock.vue */ "./resources/js/components/CoinUserBlock.vue")["default"]);
+Vue.component('coin-new', __webpack_require__(/*! ./components/CoinNew.vue */ "./resources/js/components/CoinNew.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -38162,6 +38229,45 @@ component.options.__file = "resources/js/components/CoinBlock.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/CoinNew.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/components/CoinNew.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CoinNew.vue?vue&type=template&id=c864d198&scoped=true& */ "./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&");
+/* harmony import */ var _CoinNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoinNew.vue?vue&type=script&lang=js& */ "./resources/js/components/CoinNew.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CoinNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c864d198",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CoinNew.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinUserBlock.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/CoinUserBlock.vue ***!
@@ -38297,6 +38403,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/CoinNew.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/CoinNew.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinNew.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinUserBlock.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/CoinUserBlock.vue?vue&type=script&lang=js& ***!
@@ -38384,6 +38506,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_template_id_753ba4a1_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_template_id_753ba4a1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinBlock.vue?vue&type=template&id=753ba4a1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinBlock.vue?vue&type=template&id=753ba4a1&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinNew.vue?vue&type=template&id=c864d198&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&");
 
 
 /***/ }),
@@ -38479,6 +38618,258 @@ var render = function () {
       _vm._v(" "),
       _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
     ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "coin-new" }, [
+    _c("h2", [_vm._v("Создать новый")]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Год: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.year,
+            expression: "data.year",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.year },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "year", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Страна: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.country.name,
+            expression: "data.country.name",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.country.name },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data.country, "name", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Номинал: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.denomination,
+            expression: "data.denomination",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.denomination },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "denomination", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Материал: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.material,
+            expression: "data.material",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.material },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "material", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Диаметр: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.diameter,
+            expression: "data.diameter",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.diameter },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "diameter", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Вес монеты: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.coin_weight,
+            expression: "data.coin_weight",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.coin_weight },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "coin_weight", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Тираж: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.circulation,
+            expression: "data.circulation",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.circulation },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "circulation", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Гурт: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.edge,
+            expression: "data.edge",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.edge },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "edge", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Особенности: "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.data.features,
+            expression: "data.features",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.data.features },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.data, "features", $event.target.value)
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "button", value: "Сохранить" },
+      on: {
+        click: function ($event) {
+          return _vm.saveNewCoin()
+        },
+      },
+    }),
   ])
 }
 var staticRenderFns = []
