@@ -96,7 +96,22 @@ class CoinController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->get('params');
+        $coin = Coin::find($id);
+        if(!$coin)
+            return response('Not found',404);
+        $coin->year = $data['year'];
+        $coin->country_id = 1;
+        $coin->image_id = 1;
+        $coin->denomination = $data['denomination'];
+        $coin->material = $data['material'];
+        $coin->diameter = $data['diameter'];
+        $coin->coin_weight = $data['coin_weight'];
+        $coin->circulation = $data['circulation'];
+        $coin->edge = $data['edge'];
+        $coin->features = $data['features'];
+        $coin->save();
+        return response($coin->id,200);
     }
 
     /**

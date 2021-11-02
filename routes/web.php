@@ -18,7 +18,15 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
-Route::get('/coin/{id}', [App\Http\Controllers\Coin\CoinsController::class, 'getCoin'])->name('coin');
+Route::get('/coin/{id}', function ($id) {
+    return view('coins.coin_page',['id'=>$id]);
+})->name('coin');
+Route::get('/coin/new', function ($id) {
+    return view('coins.new_coin',['id'=>$id]);
+})->middleware('auth')->name('coin');
+Route::get('/coin/{id}/edit', function ($id) {
+    return view('coins.edit_coin',['id'=>$id]);
+})->middleware('auth')->name('coin');
 Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
 
 Route::get('/about', function () {

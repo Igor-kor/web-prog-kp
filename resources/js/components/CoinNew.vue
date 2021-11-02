@@ -42,6 +42,9 @@ export default {
                 params: this.data
                 })
                 .then(res => {
+                    if(res.status == 200){
+                        window.location.href='/coin/'+ res.data;
+                    }
                     console.log(res.data);
                 });
         }
