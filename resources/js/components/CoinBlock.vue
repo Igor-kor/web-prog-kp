@@ -5,8 +5,8 @@
 <!--    {src: data.image.url, thumbnail: '/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400, title: 'Will be used for caption'},-->
 <!--    {src: data.image.url, thumbnail:'/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400}-->
 <!--  ]"></vue-picture-swipe>-->
-        <carousel :autoplay="true" :per-page="1" v-if="data.images.length > 0">
-            <slide v-for="image in data.images">
+        <carousel :autoplay="true" :per-page="1" v-if="data.images">
+            <slide v-for="(image, index) in data.images" :key="index">
                 <img v-bind:src=image.url alt="coin">
             </slide>
         </carousel>

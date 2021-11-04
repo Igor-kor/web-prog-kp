@@ -21,7 +21,7 @@ class CoinUser extends Controller
         foreach ($coin as $item){
             $item->coin;
             $item->coin->country;
-            $item->coin->image;
+            $item->coin->images;
         }
         return $coin;
     }

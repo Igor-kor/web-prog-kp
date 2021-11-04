@@ -2341,6 +2341,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2361,10 +2363,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinUserBlock",
+  components: {
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_0__.Carousel,
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_0__.Slide
+  },
   props: {
-    data: {}
+    data: {
+      images: {
+        defoult: []
+      }
+    }
   }
 });
 
@@ -2409,7 +2424,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coinuser').then(function (res) {
-        console.log(res.data);
         _this.coins = res.data;
       });
     }
@@ -7059,7 +7073,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-user-block[data-v-9cd4e1d4]{\n    width: 200px;\n    display: inline-block;\n    border-width: 1px;\n    border-color: #f5f4f4;\n    border-radius: 6px;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n}\n.coin-user-block img[data-v-9cd4e1d4]{\n    margin: 5px;\n    width: 200px;\n    background-size:cover;\n}\n.coin-user-block[data-v-9cd4e1d4]:hover{\n    border-width: 3px;\n    border-color: #5b5959;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-user-block[data-v-9cd4e1d4] {\n    width: 200px;\n    display: inline-block;\n    border-width: 1px;\n    border-color: #f5f4f4;\n    border-radius: 6px;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n}\n.coin-user-block img[data-v-9cd4e1d4] {\n    margin: 5px;\n    width: 200px;\n    background-size: cover;\n}\n.coin-user-block[data-v-9cd4e1d4]:hover {\n    border-width: 3px;\n    border-color: #5b5959;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44544,12 +44558,12 @@ var render = function () {
     "div",
     { staticClass: "coin-block" },
     [
-      _vm.data.images.length > 0
+      _vm.data.images
         ? _c(
             "carousel",
             { attrs: { autoplay: true, "per-page": 1 } },
-            _vm._l(_vm.data.images, function (image) {
-              return _c("slide", [
+            _vm._l(_vm.data.images, function (image, index) {
+              return _c("slide", { key: index }, [
                 _c("img", { attrs: { src: image.url, alt: "coin" } }),
               ])
             }),
@@ -45165,13 +45179,28 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "coin-user-block" }, [
-    _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
-      _c("img", { attrs: { src: _vm.data.coin.image.url, alt: "coin" } }),
+  return _c(
+    "div",
+    { staticClass: "coin-user-block" },
+    [
+      _vm.data.coin.images
+        ? _c(
+            "carousel",
+            { attrs: { autoplay: true, "per-page": 1 } },
+            _vm._l(_vm.data.coin.images, function (image, index) {
+              return _c("slide", { key: index }, [
+                _c("img", { attrs: { src: image.url, alt: "coin" } }),
+              ])
+            }),
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("p", [_vm._v("Сохранность: " + _vm._s(_vm.data.safety))]),
       _vm._v(" "),
       _c("p", [_vm._v("Описание: " + _vm._s(_vm.data.description))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("id: " + _vm._s(_vm.data.coin.id))]),
       _vm._v(" "),
       _c("p", [_vm._v("Год: " + _vm._s(_vm.data.coin.year))]),
       _vm._v(" "),
@@ -45192,8 +45221,13 @@ var render = function () {
       _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.coin.edge))]),
       _vm._v(" "),
       _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.coin.features))]),
-    ]),
-  ])
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
+        _vm._v("Подробнее"),
+      ]),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

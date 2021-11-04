@@ -25,7 +25,6 @@ export default {
         loadCoin() {
             axios.get('/api/coinuser')
                 .then(res => {
-                    console.log(res.data);
                     this.coins = res.data;
                 });
         }
