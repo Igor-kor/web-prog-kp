@@ -2272,6 +2272,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinNew",
@@ -2279,7 +2283,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       listcountry: [],
       countryvalue: null,
-      newcountry: null
+      newcountry: null,
+      newimage: null,
+      files: ''
     };
   },
   props: {
@@ -2311,6 +2317,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
+    handleFileUploads: function handleFileUploads(event) {
+      this.files = event.target.files;
+    },
     savecountry: function savecountry() {
       var _this2 = this;
 
@@ -2322,6 +2331,35 @@ __webpack_require__.r(__webpack_exports__);
 
           _this2.countryvalue = res.data.name;
           _this2.newcountry = '';
+        }
+      });
+    },
+    saveimage: function saveimage() {
+      var _this3 = this;
+
+      var formData = new FormData();
+
+      for (var i = 0; i < this.files.length; i++) {
+        var file = this.files[i];
+        console.log(file);
+        formData.append('files[' + i + ']', file);
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
+        if (res.status == 200) {
+          // отправить запрос на прикрипление изображения к файлуы
+          // res.data.url;
+          console.log(res.data);
+          var images = [];
+          res.data.forEach(function (image) {
+            images.push(image);
+          });
+          _this3.data.images = images;
+          _this3.newimage = '';
         }
       });
     }
@@ -44973,6 +45011,28 @@ var render = function () {
         on: {
           click: function ($event) {
             return _vm.savecountry()
+          },
+        },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Добавить изображение:\n        "),
+      _c("input", {
+        ref: "files",
+        attrs: { id: "files", type: "file", placeholder: "отредактируй меня" },
+        on: {
+          change: function ($event) {
+            return _vm.handleFileUploads($event)
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Сохранить" },
+        on: {
+          click: function ($event) {
+            return _vm.saveimage()
           },
         },
       }),

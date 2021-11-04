@@ -8,6 +8,10 @@
             <input v-model="newcountry" placeholder="отредактируй меня">
             <input @click="savecountry()" type="button" value="Сохранить">
         </p>
+        <p>Добавить изображение:
+            <input id="files" ref="files" type="file" @change="handleFileUploads( $event )" placeholder="отредактируй меня">
+            <input @click="saveimage()" type="button" value="Сохранить">
+        </p>
         <p>Номинал: <input v-model="data.denomination" placeholder="отредактируй меня"></p>
         <p>Материал: <input v-model="data.material" placeholder="отредактируй меня"></p>
         <p>Диаметр: <input v-model="data.diameter" placeholder="отредактируй меня"></p>
@@ -28,7 +32,9 @@ export default {
         return {
             listcountry: [],
             countryvalue: null,
-            newcountry: null
+            newcountry: null,
+            newimage: null,
+            files: '',
         }
     },
     props:{
@@ -61,6 +67,9 @@ export default {
                     }
                 });
         },
+        handleFileUploads(event ){
+            this.files = event.target.files;
+        },
         savecountry (){
             axios.post('/api/country/', {
                 params: this.newcountry
@@ -70,6 +79,33 @@ export default {
                         this.listcountry.push(res.data.name) ;
                         this.countryvalue = res.data.name;
                         this.newcountry = '';
+                    }
+                });
+        },
+        saveimage (){
+            let formData = new FormData();
+            for( var i = 0; i < this.files.length; i++ ){
+                let file = this.files[i];
+                console.log(file);
+                formData.append('files[' + i + ']', file);
+            }
+            axios.post('/api/image/',
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then(res => {
+                    if (res.status == 200) {
+                        // отправить запрос на прикрипление изображения к файлуы
+                        // res.data.url;
+                        console.log (res.data);
+                        let images = [];
+                        res.data.forEach(function (image){
+                            images.push(image);
+                        });
+                        this.data.images = images;
+                        this.newimage = '';
                     }
                 });
         }

@@ -50,7 +50,6 @@ class CoinController extends Controller
         $coin = new Coin;
         $coin->year = $data['year'];
         $coin->country_id = DB::table('country')->select('country_id')->where('name = '. $data["country"])[0];
-        $coin->image_id = 1;
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
         $coin->diameter = $data['diameter'];
@@ -74,6 +73,8 @@ class CoinController extends Controller
         if(!$coin){
             abort(404,'Coin not found!');
         }
+        $coin->country;
+        $coin->images;
         return $coin;
     }
 
@@ -103,7 +104,12 @@ class CoinController extends Controller
             return response('Not found',404);
         $coin->year = $data['year'];
         $coin->country_id = Country::where('name', '=', $data["country"]["name"])->firstOrFail()->id;
-        $coin->image_id = 1;
+        foreach ($data['images'] as $image){
+            $find = DB::table('coin_image')->select('*')->where('image_id','=',$image['id'])->where('coin_id','=', $id)->get()->toArray();
+            if(count($find) == 0){
+                DB::table('coin_image')->insert(['image_id'=>$image['id'],'coin_id'=>$id]);
+            }
+        }
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
         $coin->diameter = $data['diameter'];

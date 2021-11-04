@@ -31,6 +31,7 @@
 
 - npm run dev
 
+- php artisan storage:link
 ## Настрока БД
 
 ## Сборка стилей

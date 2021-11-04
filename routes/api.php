@@ -24,5 +24,6 @@ Route::apiResources(
         'coinuser'=>App\Http\Controllers\Resource\CoinUser::class,
         'mark'=>App\Http\Controllers\Resource\MarkController::class,
         'country'=>App\Http\Controllers\Resource\Country::class,
+        'image'=>App\Http\Controllers\Resource\Image::class,
     ]
 );
