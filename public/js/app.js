@@ -2221,6 +2221,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "CoinSidebarFilter"
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinUpdate.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinUpdate.vue?vue&type=script&lang=js& ***!
@@ -2442,6 +2465,7 @@ Vue.component('coin-user-list', __webpack_require__(/*! ./components/CoinUserLis
 Vue.component('coin-user-block', __webpack_require__(/*! ./components/CoinUserBlock.vue */ "./resources/js/components/CoinUserBlock.vue")["default"]);
 Vue.component('coin-new', __webpack_require__(/*! ./components/CoinNew.vue */ "./resources/js/components/CoinNew.vue")["default"]);
 Vue.component('coin-update', __webpack_require__(/*! ./components/CoinUpdate.vue */ "./resources/js/components/CoinUpdate.vue")["default"]);
+Vue.component('coin-sidebar-filter', __webpack_require__(/*! ./components/CoinSidebarFilter.vue */ "./resources/js/components/CoinSidebarFilter.vue")["default"]);
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -6974,7 +6998,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-block[data-v-753ba4a1] {\n    width: 200px;\n    display: inline-block;\n    border-width: 1px;\n    border-color: #f5f4f4;\n    border-radius: 6px;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n}\n.coin-block img[data-v-753ba4a1] {\n    margin: 5px;\n    width: 200px;\n    background-size: cover;\n}\n.coin-block[data-v-753ba4a1]:hover {\n    border-width: 3px;\n    border-color: #5b5959;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-block[data-v-753ba4a1] {\n    width: 200px;\n    display: inline-block;\n    border-width: 2px;\n    border-color: #000000;\n    border-radius: 6px;\n    border-style: solid;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n}\n.coin-block img[data-v-753ba4a1] {\n    width: 190px;\n    background-size: cover;\n}\n.coin-block[data-v-753ba4a1]:hover {\n    background-color: #e5e4e4;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43673,6 +43697,45 @@ component.options.__file = "resources/js/components/CoinNew.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/CoinSidebarFilter.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/CoinSidebarFilter.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true& */ "./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true&");
+/* harmony import */ var _CoinSidebarFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoinSidebarFilter.vue?vue&type=script&lang=js& */ "./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CoinSidebarFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "f3d432f0",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CoinSidebarFilter.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinUpdate.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/CoinUpdate.vue ***!
@@ -43863,6 +43926,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinSidebarFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinSidebarFilter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinSidebarFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinUpdate.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/CoinUpdate.vue?vue&type=script&lang=js& ***!
@@ -44029,6 +44108,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinNew_vue_vue_type_template_id_c864d198_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinNew.vue?vue&type=template&id=c864d198&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinSidebarFilter_vue_vue_type_template_id_f3d432f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true&");
 
 
 /***/ }),
@@ -44380,6 +44476,10 @@ var render = function () {
       _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.edge))]),
       _vm._v(" "),
       _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
+        _vm._v("Подробнее"),
+      ]),
     ],
     1
   )
@@ -44635,6 +44735,31 @@ var render = function () {
       },
     }),
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinSidebarFilter.vue?vue&type=template&id=f3d432f0&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n    sidebar\n")])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,6 +1,6 @@
 <template>
     <div class="coin-block">
-        <!--        <a v-bind:href="'/coin/'+ data.id">-->
+
 <!--        <vue-picture-swipe :items="[-->
 <!--    {src: data.image.url, thumbnail: '/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400, title: 'Will be used for caption'},-->
 <!--    {src: data.image.url, thumbnail:'/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400}-->
@@ -27,7 +27,7 @@
         <p>Тираж: {{ data.circulation }}</p>
         <p>Гурт: {{ data.edge }}</p>
         <p>Особенности: {{ data.features }}</p>
-        <!--        </a>-->
+        <a v-bind:href="'/coin/'+ data.id">Подробнее</a>
     </div>
 </template>
 
@@ -88,23 +88,22 @@ export default {
 .coin-block {
     width: 200px;
     display: inline-block;
-    border-width: 1px;
-    border-color: #f5f4f4;
+    border-width: 2px;
+    border-color: #000000;
     border-radius: 6px;
+    border-style: solid;
     background-color: #f5f4f4;
     align-content: center;
     text-align: center;
 }
 
 .coin-block img {
-    margin: 5px;
-    width: 200px;
+    width: 190px;
     background-size: cover;
 }
 
 .coin-block:hover {
-    border-width: 3px;
-    border-color: #5b5959;
+    background-color: #e5e4e4;
 }
 
 </style>

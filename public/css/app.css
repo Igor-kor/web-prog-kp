@@ -10019,3 +10019,14 @@ h3 {
     border-color: #dee2e6;
   }
 }
+html {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.VueCarousel-dot {
+  background-color: #02275d !important;
+}

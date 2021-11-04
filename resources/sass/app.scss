@@ -6,3 +6,15 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+html{
+    width: 100%;
+}
+
+body{
+    margin: 0;
+}
+
+.VueCarousel-dot{
+    background-color: #02275d!important;
+}

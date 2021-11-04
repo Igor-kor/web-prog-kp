@@ -26,6 +26,7 @@ Vue.component('coin-user-list', require('./components/CoinUserList.vue').default
 Vue.component('coin-user-block', require('./components/CoinUserBlock.vue').default);
 Vue.component('coin-new', require('./components/CoinNew.vue').default);
 Vue.component('coin-update', require('./components/CoinUpdate.vue').default);
+Vue.component('coin-sidebar-filter', require('./components/CoinSidebarFilter.vue').default);
 
 
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
