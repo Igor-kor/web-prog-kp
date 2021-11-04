@@ -2094,12 +2094,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {},
@@ -2112,8 +2106,8 @@ __webpack_require__.r(__webpack_exports__);
       id: {
         defoult: "NULL"
       },
-      image: {
-        defoult: "NULL"
+      images: {
+        defoult: []
       },
       year: {
         defoult: "NULL"
@@ -44550,24 +44544,18 @@ var render = function () {
     "div",
     { staticClass: "coin-block" },
     [
-      _c(
-        "carousel",
-        { attrs: { autoplay: true, "per-page": 1 } },
-        [
-          _c("slide", [
-            _c("img", { attrs: { src: _vm.data.image.url, alt: "coin" } }),
-          ]),
-          _vm._v(" "),
-          _c("slide", [
-            _c("img", { attrs: { src: _vm.data.image.url, alt: "coin" } }),
-          ]),
-          _vm._v(" "),
-          _c("slide", [
-            _c("img", { attrs: { src: _vm.data.image.url, alt: "coin" } }),
-          ]),
-        ],
-        1
-      ),
+      _vm.data.images.length > 0
+        ? _c(
+            "carousel",
+            { attrs: { autoplay: true, "per-page": 1 } },
+            _vm._l(_vm.data.images, function (image) {
+              return _c("slide", [
+                _c("img", { attrs: { src: image.url, alt: "coin" } }),
+              ])
+            }),
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
       _vm._v(" "),

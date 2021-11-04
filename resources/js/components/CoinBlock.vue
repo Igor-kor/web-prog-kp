@@ -5,15 +5,9 @@
 <!--    {src: data.image.url, thumbnail: '/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400, title: 'Will be used for caption'},-->
 <!--    {src: data.image.url, thumbnail:'/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400}-->
 <!--  ]"></vue-picture-swipe>-->
-        <carousel :autoplay="true" :per-page="1" >
-            <slide>
-                <img v-bind:src=data.image.url alt="coin">
-            </slide>
-            <slide>
-                <img v-bind:src=data.image.url alt="coin">
-            </slide>
-            <slide>
-                <img v-bind:src=data.image.url alt="coin">
+        <carousel :autoplay="true" :per-page="1" v-if="data.images.length > 0">
+            <slide v-for="image in data.images">
+                <img v-bind:src=image.url alt="coin">
             </slide>
         </carousel>
         <!--            <img v-bind:src=data.image.url alt="coin">-->
@@ -45,8 +39,8 @@ export default {
             id: {
                 defoult: "NULL"
             },
-            image: {
-                defoult: "NULL"
+            images: {
+                defoult: []
             },
             year: {
                 defoult: "NULL"
