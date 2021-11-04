@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resource;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class Country extends Controller
 {
@@ -13,6 +14,10 @@ class Country extends Controller
      */
     public function index()
     {
+        $country = \App\Models\Country::all();
+        if(!$country)
+            return response('Country not found!',404);
+        return response($country,200);
         //
     }
 

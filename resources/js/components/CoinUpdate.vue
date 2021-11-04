@@ -3,7 +3,7 @@
         <h2>Редактировать</h2>
         <p>id: {{ data.id }}</p>
         <p>Год: <input v-model="data.year" placeholder="отредактируй меня"></p>
-        <p>Страна: <input v-model="data.country.name" placeholder="отредактируй меня"></p>
+        <p>Страна: <multiselect v-model="countryvalue" :options="listcountry"></multiselect></p>
         <p>Номинал: <input v-model="data.denomination" placeholder="отредактируй меня"></p>
         <p>Материал: <input v-model="data.material" placeholder="отредактируй меня"></p>
         <p>Диаметр: <input v-model="data.diameter" placeholder="отредактируй меня"></p>
@@ -20,10 +20,31 @@ import axios from "axios";
 
 export default {
     name: "CoinNew",
+    data: function() {
+        return {
+            listcountry: [],
+            countryvalue: null,
+        }
+    },
     props:{
-        data:{}
+        data:{},
+    },
+    mounted() {
+        this.loadCountry();
     },
     methods: {
+        loadCountry() {
+            let country = [];
+            axios.get('/api/country')
+                .then(res => {
+                    res.data.forEach(function (el){
+                        if(el.name !== undefined)
+                            country.push(el.name);
+                    });
+                    this.listcountry = country;
+                    this.countryvalue =  this.data.country.name;
+                });
+        },
         editCoin() {
             axios.put('/api/coin/'+ this.data.id, {
                 params: this.data
@@ -32,12 +53,13 @@ export default {
                     if (res.status == 200) {
                         window.location.href = '/coin/' + res.data;
                     }
-                    console.log(res.data);
                 });
         }
     }
 }
 </script>
+
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
 <style scoped>
 

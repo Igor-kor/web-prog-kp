@@ -27,7 +27,8 @@ Vue.component('coin-user-block', require('./components/CoinUserBlock.vue').defau
 Vue.component('coin-new', require('./components/CoinNew.vue').default);
 Vue.component('coin-update', require('./components/CoinUpdate.vue').default);
 Vue.component('coin-sidebar-filter', require('./components/CoinSidebarFilter.vue').default);
-
+import Multiselect from 'vue-multiselect';
+Vue.component('multiselect', Multiselect);
 
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
 
