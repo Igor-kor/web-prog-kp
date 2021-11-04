@@ -14,8 +14,8 @@ class Coin extends Model
         return $this->belongsTo(Country::class);
     }
 
-    public function image()
+    public function images()
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsToMany(Image::class);
     }
 }

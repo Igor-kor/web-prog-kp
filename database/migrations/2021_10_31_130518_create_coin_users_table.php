@@ -18,6 +18,7 @@ class CreateCoinUsersTable extends Migration
         Schema::create('coin_users', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Coin::class);
+            // ->set()
             $table->enum('safety',[
                 'PF','PL','BU','UNC','AU+','AU','XF+','XF','VF+','VF','F','VG','G','AG','FA','PR'
             ])->nullable(); // сохранность

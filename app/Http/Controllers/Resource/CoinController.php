@@ -23,7 +23,7 @@ class CoinController extends Controller
         }
         foreach ($coin as $item){
             $item->country;
-            $item->image;
+            $item->images;
         }
         return $coin;
     }

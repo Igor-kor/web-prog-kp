@@ -17,7 +17,6 @@ class CreateCoinsTable extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Image::class)->nullable(); // Изображения
             $table->foreignIdFor(Country::class)->nullable(); // страна
             $table->string('year')->nullable();// год, может быть до н.э., поэтому текст
             $table->string('denomination')->nullable(); // номинал
