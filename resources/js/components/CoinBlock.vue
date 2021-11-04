@@ -1,25 +1,45 @@
 <template>
     <div class="coin-block">
-        <a v-bind:href="'/coin/'+ data.id">
-            <img v-bind:src=data.image.url alt="coin">
-            <p>Год: {{ data.year }}</p>
-            <p>Страна: {{ data.country.name }}</p>
-            <p>Номинал: {{ data.denomination }}</p>
-            <p>Тип монеты: {{ data.coin_type }}</p>
-            <p>Материал: {{ data.material }}</p>
-            <p>Диаметр: {{ data.diameter }}</p>
-            <p>Вес монеты: {{ data.coin_weight }}</p>
-            <p>Тираж: {{ data.circulation }}</p>
-            <p>Гурт: {{ data.edge }}</p>
-            <p>Особенности: {{ data.features }}</p>
-        </a>
+        <!--        <a v-bind:href="'/coin/'+ data.id">-->
+<!--        <vue-picture-swipe :items="[-->
+<!--    {src: data.image.url, thumbnail: '/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400, title: 'Will be used for caption'},-->
+<!--    {src: data.image.url, thumbnail:'/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400}-->
+<!--  ]"></vue-picture-swipe>-->
+        <carousel :autoplay="true" :per-page="1" >
+            <slide>
+                <img v-bind:src=data.image.url alt="coin">
+            </slide>
+            <slide>
+                <img v-bind:src=data.image.url alt="coin">
+            </slide>
+            <slide>
+                <img v-bind:src=data.image.url alt="coin">
+            </slide>
+        </carousel>
+        <!--            <img v-bind:src=data.image.url alt="coin">-->
+        <p>Год: {{ data.year }}</p>
+        <p>Страна: {{ data.country.name }}</p>
+        <p>Номинал: {{ data.denomination }}</p>
+        <p>Тип монеты: {{ data.coin_type }}</p>
+        <p>Материал: {{ data.material }}</p>
+        <p>Диаметр: {{ data.diameter }}</p>
+        <p>Вес монеты: {{ data.coin_weight }}</p>
+        <p>Тираж: {{ data.circulation }}</p>
+        <p>Гурт: {{ data.edge }}</p>
+        <p>Особенности: {{ data.features }}</p>
+        <!--        </a>-->
     </div>
 </template>
 
 <script>
-import axios from 'axios';
-
+import { Carousel, Slide } from 'vue-carousel';
 export default {
+    mounted() {
+    },
+    components: {
+        Carousel,
+        Slide
+    },
     props: {
         data: {
             id: {
@@ -65,7 +85,7 @@ export default {
 
 <style scoped>
 
-.coin-block{
+.coin-block {
     width: 200px;
     display: inline-block;
     border-width: 1px;
@@ -76,13 +96,13 @@ export default {
     text-align: center;
 }
 
-.coin-block img{
+.coin-block img {
     margin: 5px;
     width: 200px;
-    background-size:cover;
+    background-size: cover;
 }
 
-.coin-block:hover{
+.coin-block:hover {
     border-width: 3px;
     border-color: #5b5959;
 }
