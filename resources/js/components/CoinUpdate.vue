@@ -4,6 +4,10 @@
         <p>id: {{ data.id }}</p>
         <p>Год: <input v-model="data.year" placeholder="отредактируй меня"></p>
         <p>Страна: <multiselect v-model="countryvalue" :options="listcountry"></multiselect></p>
+        <p>Добавить страну:
+            <input v-model="newcountry" placeholder="отредактируй меня">
+            <input @click="savecountry()" type="button" value="Сохранить">
+        </p>
         <p>Номинал: <input v-model="data.denomination" placeholder="отредактируй меня"></p>
         <p>Материал: <input v-model="data.material" placeholder="отредактируй меня"></p>
         <p>Диаметр: <input v-model="data.diameter" placeholder="отредактируй меня"></p>
@@ -24,6 +28,7 @@ export default {
         return {
             listcountry: [],
             countryvalue: null,
+            newcountry: null
         }
     },
     props:{
@@ -46,12 +51,25 @@ export default {
                 });
         },
         editCoin() {
+            this.data.country.name = this.countryvalue;
             axios.put('/api/coin/'+ this.data.id, {
                 params: this.data
             })
                 .then(res => {
                     if (res.status == 200) {
                         window.location.href = '/coin/' + res.data;
+                    }
+                });
+        },
+        savecountry (){
+            axios.post('/api/country/', {
+                params: this.newcountry
+            })
+                .then(res => {
+                    if (res.status == 200) {
+                        this.listcountry.push(res.data.name) ;
+                        this.countryvalue = res.data.name;
+                        this.newcountry = '';
                     }
                 });
         }

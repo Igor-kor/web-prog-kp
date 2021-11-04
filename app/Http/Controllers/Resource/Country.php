@@ -39,6 +39,11 @@ class Country extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->get('params');
+        $country = new \App\Models\Country();
+        $country->name = $data;
+        $country->save();
+        return response($country,200);
         //
     }
 

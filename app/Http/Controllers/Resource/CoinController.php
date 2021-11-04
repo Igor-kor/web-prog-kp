@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Coin;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CoinController extends Controller
 {
@@ -48,7 +49,7 @@ class CoinController extends Controller
         $data = $request->get('params');
         $coin = new Coin;
         $coin->year = $data['year'];
-        $coin->country_id = 1;
+        $coin->country_id = DB::table('country')->select('country_id')->where('name = '. $data["country"])[0];
         $coin->image_id = 1;
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
@@ -101,7 +102,7 @@ class CoinController extends Controller
         if(!$coin)
             return response('Not found',404);
         $coin->year = $data['year'];
-        $coin->country_id = 1;
+        $coin->country_id = Country::where('name', '=', $data["country"]["name"])->firstOrFail()->id;
         $coin->image_id = 1;
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];

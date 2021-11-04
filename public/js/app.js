@@ -2274,13 +2274,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinNew",
   data: function data() {
     return {
       listcountry: [],
-      countryvalue: null
+      countryvalue: null,
+      newcountry: null
     };
   },
   props: {
@@ -2303,11 +2308,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     editCoin: function editCoin() {
+      this.data.country.name = this.countryvalue;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/coin/' + this.data.id, {
         params: this.data
       }).then(function (res) {
         if (res.status == 200) {
           window.location.href = '/coin/' + res.data;
+        }
+      });
+    },
+    savecountry: function savecountry() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
+        params: this.newcountry
+      }).then(function (res) {
+        if (res.status == 200) {
+          _this2.listcountry.push(res.data.name);
+
+          _this2.countryvalue = res.data.name;
+          _this2.newcountry = '';
         }
       });
     }
@@ -44922,6 +44942,39 @@ var render = function () {
       ],
       1
     ),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v("Добавить страну:\n        "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.newcountry,
+            expression: "newcountry",
+          },
+        ],
+        attrs: { placeholder: "отредактируй меня" },
+        domProps: { value: _vm.newcountry },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.newcountry = $event.target.value
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Сохранить" },
+        on: {
+          click: function ($event) {
+            return _vm.savecountry()
+          },
+        },
+      }),
+    ]),
     _vm._v(" "),
     _c("p", [
       _vm._v("Номинал: "),
