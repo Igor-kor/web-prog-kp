@@ -2,6 +2,12 @@
     <div class="coin-update">
         <h2>Редактировать</h2>
         <p>id: {{ data.id }}</p>
+        <carousel :autoplay="true" :per-page="1" v-if="data.images" :key="newimage">
+            <slide v-for="(image, index) in data.images" :key="index">
+                <img class="slide-img" v-bind:src=image.url alt="coin">
+                <input type="button" @click="deleteImage(index)" value="Удалить изображение">
+            </slide>
+        </carousel>
         <p>Год: <input v-model="data.year" placeholder="отредактируй меня"></p>
         <p>Страна: <multiselect v-model="countryvalue" :options="listcountry"></multiselect></p>
         <p>Добавить страну:
@@ -25,9 +31,13 @@
 
 <script>
 import axios from "axios";
-
+import { Carousel, Slide } from 'vue-carousel';
 export default {
-    name: "CoinNew",
+    name: "CoinUpdate",
+    components: {
+        Carousel,
+        Slide
+    },
     data: function() {
         return {
             listcountry: [],
@@ -35,12 +45,19 @@ export default {
             newcountry: null,
             newimage: null,
             files: '',
+            data:{},
         }
     },
     props:{
-        data:{},
+        id:null,
     },
     mounted() {
+        axios.get('/api/coin/'+this.id)
+            .then(res => {
+                if (res.status == 200) {
+                    this.data = res.data;
+                }
+            });
         this.loadCountry();
     },
     methods: {
@@ -86,7 +103,6 @@ export default {
             let formData = new FormData();
             for( var i = 0; i < this.files.length; i++ ){
                 let file = this.files[i];
-                console.log(file);
                 formData.append('files[' + i + ']', file);
             }
             axios.post('/api/image/',
@@ -96,18 +112,20 @@ export default {
                         'Content-Type': 'multipart/form-data'
                     }
                 }).then(res => {
-                    if (res.status == 200) {
-                        // отправить запрос на прикрипление изображения к файлуы
-                        // res.data.url;
-                        console.log (res.data);
-                        let images = [];
-                        res.data.forEach(function (image){
-                            images.push(image);
-                        });
-                        this.data.images = images;
-                        this.newimage = '';
-                    }
-                });
+                if (res.status == 200) {
+                    if(this.data.images == null)
+                        this.data.images = [];
+                    res.data.forEach(function (image){
+                        this.data.images.push(image);
+                    },this);
+                    this.newimage = '';
+                }
+            });
+        },
+        deleteImage(index){
+            this.newimage = '1';
+            this.data.images.splice(index,1);
+            this.newimage = '';
         }
     }
 }

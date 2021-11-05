@@ -2280,7 +2280,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res.status == 200) {
-          // отправить запрос на прикрипление изображения к файлу
           if (_this3.data.images == null) _this3.data.images = [];
           res.data.forEach(function (image) {
             this.data.images.push(image);
@@ -2338,6 +2337,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2364,34 +2371,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "CoinNew",
+  name: "CoinUpdate",
+  components: {
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide
+  },
   data: function data() {
     return {
       listcountry: [],
       countryvalue: null,
       newcountry: null,
       newimage: null,
-      files: ''
+      files: '',
+      data: {}
     };
   },
   props: {
-    data: {}
+    id: null
   },
   mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coin/' + this.id).then(function (res) {
+      if (res.status == 200) {
+        _this.data = res.data;
+      }
+    });
     this.loadCountry();
   },
   methods: {
     loadCountry: function loadCountry() {
-      var _this = this;
+      var _this2 = this;
 
       var country = [];
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/country').then(function (res) {
         res.data.forEach(function (el) {
           if (el.name !== undefined) country.push(el.name);
         });
-        _this.listcountry = country;
-        _this.countryvalue = _this.data.country.name;
+        _this2.listcountry = country;
+        _this2.countryvalue = _this2.data.country.name;
       });
     },
     editCoin: function editCoin() {
@@ -2408,27 +2428,26 @@ __webpack_require__.r(__webpack_exports__);
       this.files = event.target.files;
     },
     savecountry: function savecountry() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
         params: this.newcountry
       }).then(function (res) {
         if (res.status == 200) {
-          _this2.listcountry.push(res.data.name);
+          _this3.listcountry.push(res.data.name);
 
-          _this2.countryvalue = res.data.name;
-          _this2.newcountry = '';
+          _this3.countryvalue = res.data.name;
+          _this3.newcountry = '';
         }
       });
     },
     saveimage: function saveimage() {
-      var _this3 = this;
+      var _this4 = this;
 
       var formData = new FormData();
 
       for (var i = 0; i < this.files.length; i++) {
         var file = this.files[i];
-        console.log(file);
         formData.append('files[' + i + ']', file);
       }
 
@@ -2438,17 +2457,18 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res.status == 200) {
-          // отправить запрос на прикрипление изображения к файлуы
-          // res.data.url;
-          console.log(res.data);
-          var images = [];
+          if (_this4.data.images == null) _this4.data.images = [];
           res.data.forEach(function (image) {
-            images.push(image);
-          });
-          _this3.data.images = images;
-          _this3.newimage = '';
+            this.data.images.push(image);
+          }, _this4);
+          _this4.newimage = '';
         }
       });
+    },
+    deleteImage: function deleteImage(index) {
+      this.newimage = '1';
+      this.data.images.splice(index, 1);
+      this.newimage = '';
     }
   }
 });
@@ -45175,285 +45195,319 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "coin-update" }, [
-    _c("h2", [_vm._v("Редактировать")]),
-    _vm._v(" "),
-    _c("p", [_vm._v("id: " + _vm._s(_vm.data.id))]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Год: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.year,
-            expression: "data.year",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.year },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "year", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c(
-      "p",
-      [
-        _vm._v("Страна: "),
-        _c("multiselect", {
-          attrs: { options: _vm.listcountry },
-          model: {
-            value: _vm.countryvalue,
-            callback: function ($$v) {
-              _vm.countryvalue = $$v
+  return _c(
+    "div",
+    { staticClass: "coin-update" },
+    [
+      _c("h2", [_vm._v("Редактировать")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("id: " + _vm._s(_vm.data.id))]),
+      _vm._v(" "),
+      _vm.data.images
+        ? _c(
+            "carousel",
+            { key: _vm.newimage, attrs: { autoplay: true, "per-page": 1 } },
+            _vm._l(_vm.data.images, function (image, index) {
+              return _c("slide", { key: index }, [
+                _c("img", {
+                  staticClass: "slide-img",
+                  attrs: { src: image.url, alt: "coin" },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "button", value: "Удалить изображение" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteImage(index)
+                    },
+                  },
+                }),
+              ])
+            }),
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Год: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.year,
+              expression: "data.year",
             },
-            expression: "countryvalue",
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.year },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "year", $event.target.value)
+            },
           },
         }),
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Добавить страну:\n        "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.newcountry,
-            expression: "newcountry",
-          },
+      ]),
+      _vm._v(" "),
+      _c(
+        "p",
+        [
+          _vm._v("Страна: "),
+          _c("multiselect", {
+            attrs: { options: _vm.listcountry },
+            model: {
+              value: _vm.countryvalue,
+              callback: function ($$v) {
+                _vm.countryvalue = $$v
+              },
+              expression: "countryvalue",
+            },
+          }),
         ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.newcountry },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.newcountry = $event.target.value
+        1
+      ),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Добавить страну:\n        "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.newcountry,
+              expression: "newcountry",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.newcountry },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.newcountry = $event.target.value
+            },
           },
-        },
-      }),
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "button", value: "Сохранить" },
+          on: {
+            click: function ($event) {
+              return _vm.savecountry()
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Добавить изображение:\n        "),
+        _c("input", {
+          ref: "files",
+          attrs: {
+            id: "files",
+            type: "file",
+            placeholder: "отредактируй меня",
+          },
+          on: {
+            change: function ($event) {
+              return _vm.handleFileUploads($event)
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "button", value: "Сохранить" },
+          on: {
+            click: function ($event) {
+              return _vm.saveimage()
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Номинал: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.denomination,
+              expression: "data.denomination",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.denomination },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "denomination", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Материал: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.material,
+              expression: "data.material",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.material },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "material", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Диаметр: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.diameter,
+              expression: "data.diameter",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.diameter },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "diameter", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Вес монеты: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.coin_weight,
+              expression: "data.coin_weight",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.coin_weight },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "coin_weight", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Тираж: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.circulation,
+              expression: "data.circulation",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.circulation },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "circulation", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Гурт: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.edge,
+              expression: "data.edge",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.edge },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "edge", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Особенности: "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.data.features,
+              expression: "data.features",
+            },
+          ],
+          attrs: { placeholder: "отредактируй меня" },
+          domProps: { value: _vm.data.features },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.data, "features", $event.target.value)
+            },
+          },
+        }),
+      ]),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "button", value: "Сохранить" },
         on: {
           click: function ($event) {
-            return _vm.savecountry()
+            return _vm.editCoin()
           },
         },
       }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Добавить изображение:\n        "),
-      _c("input", {
-        ref: "files",
-        attrs: { id: "files", type: "file", placeholder: "отредактируй меня" },
-        on: {
-          change: function ($event) {
-            return _vm.handleFileUploads($event)
-          },
-        },
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "button", value: "Сохранить" },
-        on: {
-          click: function ($event) {
-            return _vm.saveimage()
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Номинал: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.denomination,
-            expression: "data.denomination",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.denomination },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "denomination", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Материал: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.material,
-            expression: "data.material",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.material },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "material", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Диаметр: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.diameter,
-            expression: "data.diameter",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.diameter },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "diameter", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Вес монеты: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.coin_weight,
-            expression: "data.coin_weight",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.coin_weight },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "coin_weight", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Тираж: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.circulation,
-            expression: "data.circulation",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.circulation },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "circulation", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Гурт: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.edge,
-            expression: "data.edge",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.edge },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "edge", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("Особенности: "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.data.features,
-            expression: "data.features",
-          },
-        ],
-        attrs: { placeholder: "отредактируй меня" },
-        domProps: { value: _vm.data.features },
-        on: {
-          input: function ($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.data, "features", $event.target.value)
-          },
-        },
-      }),
-    ]),
-    _vm._v(" "),
-    _c("input", {
-      attrs: { type: "button", value: "Сохранить" },
-      on: {
-        click: function ($event) {
-          return _vm.editCoin()
-        },
-      },
-    }),
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -113,7 +113,6 @@ export default {
                     }
                 }).then(res => {
                 if (res.status == 200) {
-                    // отправить запрос на прикрипление изображения к файлу
                     if(this.data.images == null)
                         this.data.images = [];
                     res.data.forEach(function (image){
