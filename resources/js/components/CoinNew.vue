@@ -5,6 +5,7 @@
         <carousel :autoplay="true" :per-page="1" v-if="data.images" :key="newimage">
             <slide v-for="(image, index) in data.images" :key="index">
                 <img class="slide-img" v-bind:src=image.url alt="coin">
+                <input type="button" @click="deleteImage(index)" value="Удалить изображение">
             </slide>
         </carousel>
         <p>Год: <input v-model="data.year" placeholder="отредактируй меня"></p>
@@ -102,7 +103,6 @@ export default {
             let formData = new FormData();
             for( var i = 0; i < this.files.length; i++ ){
                 let file = this.files[i];
-                console.log(file);
                 formData.append('files[' + i + ']', file);
             }
             axios.post('/api/image/',
@@ -122,6 +122,11 @@ export default {
                     this.newimage = '';
                 }
             });
+        },
+        deleteImage(index){
+            this.newimage = '1';
+            this.data.images.splice(index,1);
+            this.newimage = '';
         }
     },
     mounted() {

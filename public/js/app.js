@@ -2190,6 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2270,7 +2271,6 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i = 0; i < this.files.length; i++) {
         var file = this.files[i];
-        console.log(file);
         formData.append('files[' + i + ']', file);
       }
 
@@ -2288,6 +2288,11 @@ __webpack_require__.r(__webpack_exports__);
           _this3.newimage = '';
         }
       });
+    },
+    deleteImage: function deleteImage(index) {
+      this.newimage = '1';
+      this.data.images.splice(index, 1);
+      this.newimage = '';
     }
   },
   mounted: function mounted() {
@@ -44825,6 +44830,15 @@ var render = function () {
                 _c("img", {
                   staticClass: "slide-img",
                   attrs: { src: image.url, alt: "coin" },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "button", value: "Удалить изображение" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteImage(index)
+                    },
+                  },
                 }),
               ])
             }),

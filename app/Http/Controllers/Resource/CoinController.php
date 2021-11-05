@@ -59,6 +59,9 @@ class CoinController extends Controller
         $coin->edge = $data['edge'];
         $coin->features = $data['features'];
         $coin->save();
+        foreach ($data['images'] as $image){
+            DB::table('coin_image')->insert(['image_id'=>$image['id'],'coin_id'=>$coin->id]);
+        }
         return response($coin->id,200);
     }
 
