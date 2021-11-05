@@ -26,6 +26,7 @@
         <p>Гурт: <input v-model="data.edge" placeholder="отредактируй меня"></p>
         <p>Особенности: <input v-model="data.features" placeholder="отредактируй меня"></p>
         <input @click="editCoin()" type="button" value="Сохранить">
+        <input @click="deleteCoin()" type="button" value="Удалить">
     </div>
 </template>
 
@@ -126,6 +127,14 @@ export default {
             this.newimage = '1';
             this.data.images.splice(index,1);
             this.newimage = '';
+        },
+        deleteCoin() {
+            axios.delete('/api/coin/'+this.id)
+                .then(res => {
+                    if (res.status == 200) {
+                        window.location.href = "/coins";
+                    }
+                });
         }
     }
 }

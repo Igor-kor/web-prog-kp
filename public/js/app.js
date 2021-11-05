@@ -2452,6 +2452,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2551,6 +2552,13 @@ __webpack_require__.r(__webpack_exports__);
       this.newimage = '1';
       this.data.images.splice(index, 1);
       this.newimage = '';
+    },
+    deleteCoin: function deleteCoin() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/coin/' + this.id).then(function (res) {
+        if (res.status == 200) {
+          window.location.href = "/coins";
+        }
+      });
     }
   }
 });
@@ -45758,6 +45766,15 @@ var render = function () {
         on: {
           click: function ($event) {
             return _vm.editCoin()
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Удалить" },
+        on: {
+          click: function ($event) {
+            return _vm.deleteCoin()
           },
         },
       }),
