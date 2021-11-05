@@ -2312,12 +2312,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "CoinPage"
+  name: "CoinPage",
+  components: {
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide
+  },
+  props: {
+    id: null
+  },
+  data: function data() {
+    return {
+      data: {},
+      newimage: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coin/' + this.id).then(function (res) {
+      if (res.status == 200) {
+        _this.data = res.data;
+        _this.newimage = '';
+      }
+    });
+  },
+  methods: {
+    editCoin: function editCoin() {
+      window.location.href = window.location.href + '/edit/';
+    },
+    addCollection: function addCollection() {},
+    deleteCoin: function deleteCoin() {}
+  }
 });
 
 /***/ }),
@@ -45268,7 +45323,79 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    { staticClass: "coin-page" },
+    [
+      _c("p", [_vm._v("id: " + _vm._s(_vm.data.id))]),
+      _vm._v(" "),
+      _vm.data.images
+        ? _c(
+            "carousel",
+            { key: _vm.newimage, attrs: { autoplay: true, "per-page": 1 } },
+            _vm._l(_vm.data.images, function (image, index) {
+              return _c("slide", { key: index }, [
+                _c("img", {
+                  staticClass: "slide-img",
+                  attrs: { src: image.url, alt: "coin" },
+                }),
+              ])
+            }),
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Страна: " + _vm._s(_vm.data.country ? _vm.data.country.name : "")
+        ),
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Номинал: " + _vm._s(_vm.data.denomination))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Материал: " + _vm._s(_vm.data.material))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Диаметр:" + _vm._s(_vm.data.diameter))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Вес монеты: " + _vm._s(_vm.data.coin_weight))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Тираж:" + _vm._s(_vm.data.circulation))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.edge))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Изменить" },
+        on: {
+          click: function ($event) {
+            return _vm.editCoin()
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Добавить в коллекию" },
+        on: {
+          click: function ($event) {
+            return _vm.addCollection()
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "button", value: "Удалить" },
+        on: {
+          click: function ($event) {
+            return _vm.deleteCoin()
+          },
+        },
+      }),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
