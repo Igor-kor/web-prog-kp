@@ -57,7 +57,12 @@ export default {
 
         },
         deleteCoin() {
-
+            axios.delete('/api/coin/'+this.id)
+                .then(res => {
+                    if (res.status == 200) {
+                        window.location.href = "/coins";
+                    }
+                });
         }
     }
 }

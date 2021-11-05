@@ -136,6 +136,10 @@ class CoinController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coin = Coin::find($id);
+        if(!$coin)
+            return response('Not found',404);
+        $coin->delete();
+        return response('Success',200);
     }
 }

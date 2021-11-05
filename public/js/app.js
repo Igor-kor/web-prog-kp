@@ -2371,7 +2371,13 @@ __webpack_require__.r(__webpack_exports__);
       window.location.href = window.location.href + '/edit/';
     },
     addCollection: function addCollection() {},
-    deleteCoin: function deleteCoin() {}
+    deleteCoin: function deleteCoin() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/coin/' + this.id).then(function (res) {
+        if (res.status == 200) {
+          window.location.href = "/coins";
+        }
+      });
+    }
   }
 });
 
