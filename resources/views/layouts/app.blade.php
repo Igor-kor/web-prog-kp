@@ -38,6 +38,9 @@
                 <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-nav-link>
+                <x-nav-link :href="route('new_coin')" :active="request()->routeIs('new_coin')">
+                    {{ __('New Coin') }}
+                </x-nav-link>
                 <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
                     {{ __('Marks') }}
                 </x-nav-link>
