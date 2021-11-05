@@ -44881,7 +44881,11 @@ var render = function () {
       _vm._v(" "),
       _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
       _vm._v(" "),
-      _c("p", [_vm._v("Страна: " + _vm._s(_vm.data.country.name))]),
+      _c("p", [
+        _vm._v(
+          "Страна: " + _vm._s(_vm.data.country ? _vm.data.country.name : "")
+        ),
+      ]),
       _vm._v(" "),
       _c("p", [_vm._v("Номинал: " + _vm._s(_vm.data.denomination))]),
       _vm._v(" "),

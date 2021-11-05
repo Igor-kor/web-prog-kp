@@ -12,7 +12,7 @@
         </carousel>
         <!--            <img v-bind:src=data.image.url alt="coin">-->
         <p>Год: {{ data.year }}</p>
-        <p>Страна: {{ data.country.name }}</p>
+        <p>Страна: {{ data.country?data.country.name:"" }}</p>
         <p>Номинал: {{ data.denomination }}</p>
         <p>Тип монеты: {{ data.coin_type }}</p>
         <p>Материал: {{ data.material }}</p>
