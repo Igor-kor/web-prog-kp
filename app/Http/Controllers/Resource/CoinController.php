@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Coin;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class CoinController extends Controller
@@ -49,6 +50,7 @@ class CoinController extends Controller
         $data = $request->get('params');
         $coin = new Coin;
         $coin->year = $data['year'];
+        $coin->country_id = null;
         if(!empty($data["country"]))
             $coin->country_id = $data["id"];
         $coin->denomination = $data['denomination'];
@@ -59,9 +61,12 @@ class CoinController extends Controller
         $coin->edge = $data['edge'];
         $coin->features = $data['features'];
         $coin->save();
-        foreach ($data['images'] as $image){
-            DB::table('coin_image')->insert(['image_id'=>$image['id'],'coin_id'=>$coin->id]);
+        // достать все id и в сводную таблицу засинхронит с новой монетой
+        $image_id_array = [];
+        foreach ($data['images'] as $image) {
+            $image_id_array[$image['id']] = ['coin_id' => $coin->id];
         }
+        $coin->images()->sync($image_id_array);
         return response($coin->id,200);
     }
 
@@ -108,15 +113,15 @@ class CoinController extends Controller
             return response('Not found',404);
         $coin->year = $data['year'];
         if(!empty($data["country"]))
-            $coin->country_id = $data["id"];
+            $coin->country_id = $data["country"]["id"];
         else
             $coin->country_id = null;
-        foreach ($data['images'] as $image){
-            $find = DB::table('coin_image')->select('*')->where('image_id','=',$image['id'])->where('coin_id','=', $id)->get()->toArray();
-            if(count($find) == 0){
-                DB::table('coin_image')->insert(['image_id'=>$image['id'],'coin_id'=>$id]);
-            }
+        // достать все id и в сводную таблицу засинхронит с новой монетой
+        $image_id_array = [];
+        foreach ($data['images'] as $image) {
+            $image_id_array[$image['id']] = ['coin_id' => $coin->id];
         }
+        $coin->images()->sync($image_id_array);
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
         $coin->diameter = $data['diameter'];
