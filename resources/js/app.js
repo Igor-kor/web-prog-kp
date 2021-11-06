@@ -31,6 +31,7 @@ Vue.component('coin-page', require('./components/CoinPage.vue').default);
 Vue.component('coin-desc', require('./components/CoinDesc.vue').default);
 Vue.component('image-upload', require('./components/ImageUpload.vue').default);
 Vue.component('coin-inputs', require('./components/CoinInputs.vue').default);
+Vue.component('coin-user-page', require('./components/CoinUserPage.vue').default);
 import Multiselect from 'vue-multiselect';
 Vue.component('multiselect', Multiselect);
 

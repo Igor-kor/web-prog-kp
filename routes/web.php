@@ -21,6 +21,9 @@ Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoin
 Route::get('/coin/{id}', function ($id) {
     return view('coins.coin_page',['id'=>$id]);
 })->name('coin');
+Route::get('/coinuser/{id}', function ($id) {
+    return view('coins.coin_user_page',['id'=>$id]);
+})->name('coinuser');
 Route::get('/new_coin', function () {
     return view('coins.new_coin');
 })->middleware('auth')->name('new_coin');

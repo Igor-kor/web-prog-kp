@@ -8,17 +8,8 @@
         <p>Сохранность: {{ data.safety }}</p>
         <p>Описание: {{ data.description }}</p>
         <p>id: {{ data.coin.id }}</p>
-        <p>Год: {{ data.coin.year }}</p>
-        <p>Страна: {{ data.coin.country.name }}</p>
-        <p>Номинал: {{ data.coin.denomination }}</p>
-        <p>Тип монеты: {{ data.coin.coin_type }}</p>
-        <p>Материал: {{ data.coin.material }}</p>
-        <p>Диаметр: {{ data.coin.diameter }}</p>
-        <p>Вес монеты: {{ data.coin.coin_weight }}</p>
-        <p>Тираж: {{ data.coin.circulation }}</p>
-        <p>Гурт: {{ data.coin.edge }}</p>
-        <p>Особенности: {{ data.coin.features }}</p>
-        <a v-bind:href="'/coin/'+ data.id">Подробнее</a>
+        <coin-desc v-bind:data=data.coin></coin-desc>
+        <a v-bind:href="'/coinuser/'+ data.id">Подробнее</a>
     </div>
 </template>
 

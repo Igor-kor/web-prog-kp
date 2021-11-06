@@ -55,7 +55,13 @@ class CoinUser extends Controller
      */
     public function show($id)
     {
-        //
+        $coin = \App\Models\CoinUser::find($id);
+        if(!$coin){
+            abort(404,'Coin not found!');
+        }
+        $coin->coin->country;
+        $coin->coin->images;
+        return $coin;
     }
 
     /**
