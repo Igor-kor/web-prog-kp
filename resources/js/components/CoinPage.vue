@@ -46,7 +46,7 @@ export default {
             window.location.href =  window.location.href+'/edit/';
         },
         addCollection() {
-
+            window.location.href = '/coinusernew/' + this.data.id;
         },
         deleteCoin() {
             axios.delete('/api/coin/'+this.id)

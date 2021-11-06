@@ -1,7 +1,7 @@
 <template>
     <div class="coin-desc">
         <p>Год: {{ data.year || "" }}</p>
-        <p>Страна: {{ data.country.name || "" }}</p>
+        <p>Страна: {{  data.country?data.country.name || "":"" }}</p>
         <p>Номинал: {{ data.denomination || "" }}</p>
         <p>Материал: {{ data.material || "" }}</p>
         <p>Диаметр:{{ data.diameter || "" }}</p>

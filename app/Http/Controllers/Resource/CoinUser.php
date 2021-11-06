@@ -44,7 +44,17 @@ class CoinUser extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->get('params');
+        $coin = new \App\Models\CoinUser();
+        if(!$coin)
+            return response('Not found',404);
+        if(!empty ( $data['safety']))
+            $coin->safety = $data['safety'];
+        if(!empty ( $data['description']))
+            $coin->description = $data['description'];
+        $coin->coin_id = $data['coin']['id'];
+        $coin->save();
+        return response($coin,200);
     }
 
     /**
@@ -88,8 +98,10 @@ class CoinUser extends Controller
         $coin = \App\Models\CoinUser::find($id);
         if(!$coin)
             return response('Not found',404);
-        $coin->safety = $data['safety'];
-        $coin->description = $data['description'];
+        if(!empty ( $data['safety']))
+            $coin->safety = $data['safety'];
+        if(!empty ( $data['description']))
+            $coin->description = $data['description'];
         $coin->save();
         return response($coin,200);
     }
