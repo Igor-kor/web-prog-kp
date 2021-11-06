@@ -28,6 +28,9 @@ Vue.component('coin-new', require('./components/CoinNew.vue').default);
 Vue.component('coin-update', require('./components/CoinUpdate.vue').default);
 Vue.component('coin-sidebar-filter', require('./components/CoinSidebarFilter.vue').default);
 Vue.component('coin-page', require('./components/CoinPage.vue').default);
+Vue.component('coin-desc', require('./components/CoinDesc.vue').default);
+Vue.component('image-upload', require('./components/ImageUpload.vue').default);
+Vue.component('coin-inputs', require('./components/CoinInputs.vue').default);
 import Multiselect from 'vue-multiselect';
 Vue.component('multiselect', Multiselect);
 

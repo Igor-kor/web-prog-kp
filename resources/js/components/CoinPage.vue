@@ -6,17 +6,9 @@
                 <img class="slide-img" v-bind:src=image.url alt="coin">
             </slide>
         </carousel>
-        <p>Год: {{ data.year }}</p>
-        <p>Страна: {{ data.country ? data.country.name : "" }}</p>
-        <p>Номинал: {{ data.denomination }}</p>
-        <p>Материал: {{ data.material }}</p>
-        <p>Диаметр:{{ data.diameter }}</p>
-        <p>Вес монеты: {{ data.coin_weight }}</p>
-        <p>Тираж:{{ data.circulation }}</p>
-        <p>Гурт: {{ data.edge }}</p>
-        <p>Особенности: {{ data.features }}</p>
+        <coin-desc v-bind:data=data></coin-desc>
         <input @click="editCoin()" type="button" value="Изменить">
-        <input @click="addCollection()" type="button" value="Добавить в коллекию">
+        <input @click="addCollection()" type="button" value="Добавить в коллекцию">
         <input @click="deleteCoin()" type="button" value="Удалить">
     </div>
 </template>
