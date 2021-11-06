@@ -20,44 +20,7 @@ export default {
         Slide
     },
     props: {
-        data: {
-            id: {
-                defoult: "NULL"
-            },
-            images: {
-                defoult: []
-            },
-            year: {
-                defoult: "NULL"
-            },
-            country: {
-                defoult: "NULL"
-            },
-            denomination: {
-                defoult: "NULL"
-            },
-            coin_type: {
-                defoult: "NULL"
-            },
-            diameter: {
-                defoult: "NULL"
-            },
-            coin_weight: {
-                defoult: "NULL"
-            },
-            circulation: {
-                defoult: "NULL"
-            },
-            features: {
-                defoult: "NULL"
-            },
-            edge: {
-                defoult: "NULL"
-            },
-            material: {
-                defoult: "NULL"
-            }
-        }
+        data: {}
     }
 }
 </script>
