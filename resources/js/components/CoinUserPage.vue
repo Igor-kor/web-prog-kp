@@ -12,6 +12,7 @@
         <coin-desc v-bind:data=data.coin></coin-desc>
         <input @click="editCoin()" type="button" value="Изменить">
         <input @click="deleteCoin()" type="button" value="Удалить">
+        <a v-bind:href="'/coin/'+ data.coin.id">Основная монета</a>
     </div>
 </template>
 

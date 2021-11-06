@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="coin-inputs">
         <image-upload v-bind:data=data></image-upload>
         <p>Год: <input v-model="data.year" placeholder="отредактируй меня"></p>
         <p>Страна:

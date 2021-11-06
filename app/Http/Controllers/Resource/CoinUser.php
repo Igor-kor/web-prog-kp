@@ -84,7 +84,14 @@ class CoinUser extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->get('params');
+        $coin = \App\Models\CoinUser::find($id);
+        if(!$coin)
+            return response('Not found',404);
+        $coin->safety = $data['safety'];
+        $coin->description = $data['description'];
+        $coin->save();
+        return response($coin,200);
     }
 
     /**
@@ -95,6 +102,10 @@ class CoinUser extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coin = \App\Models\CoinUser::find($id);
+        if(!$coin)
+            return response('Not found',404);
+        $coin->delete();
+        return response('Success',200);
     }
 }

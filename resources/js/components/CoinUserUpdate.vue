@@ -2,9 +2,11 @@
     <div class="coin-user-update">
         <h2>Редактировать</h2>
         <p>id: {{ data.id }}</p>
-        <coin-inputs v-bind:data=data.coin></coin-inputs>
+        <coin-desc v-bind:data=data.coin></coin-desc>
+        <coin-user-inputs v-bind:data=data></coin-user-inputs>
         <input @click="editCoin()" type="button" value="Сохранить">
         <input @click="deleteCoin()" type="button" value="Удалить">
+        <a v-bind:href="'/coin/'+ data.coin.id">Основная монета</a>
     </div>
 </template>
 
@@ -36,7 +38,7 @@ name: "CoinUserUpdate",
             })
                 .then(res => {
                     if (res.status == 200) {
-                        window.location.href = '/coinuser/' + res.data;
+                        window.location.href = '/coinuser/' + this.data.id;
                     }
                 });
         },
