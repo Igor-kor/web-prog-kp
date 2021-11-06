@@ -10,7 +10,6 @@
         <p>Описание: {{ data.description }}</p>
         <p>id coin: {{ data.coin?data.coin.id:""}}</p>
         <coin-desc v-bind:data=data.coin></coin-desc>
-        <a v-bind:href="'/coinuser/'+ data.id">Подробнее</a>
     </div>
 </template>
 
