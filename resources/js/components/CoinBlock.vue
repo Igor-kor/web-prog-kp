@@ -1,26 +1,11 @@
 <template>
     <div class="coin-block">
-
-<!--        <vue-picture-swipe :items="[-->
-<!--    {src: data.image.url, thumbnail: '/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400, title: 'Will be used for caption'},-->
-<!--    {src: data.image.url, thumbnail:'/img/dogecoin-logo-thumbnail.jpg' ,w: 400,h: 400}-->
-<!--  ]"></vue-picture-swipe>-->
         <carousel :autoplay="true" :per-page="1" v-if="data.images">
             <slide v-for="(image, index) in data.images" :key="index">
                 <img v-bind:src=image.url alt="coin">
             </slide>
         </carousel>
-        <!--            <img v-bind:src=data.image.url alt="coin">-->
-        <p>Год: {{ data.year }}</p>
-        <p>Страна: {{ data.country?data.country.name:"" }}</p>
-        <p>Номинал: {{ data.denomination }}</p>
-        <p>Тип монеты: {{ data.coin_type }}</p>
-        <p>Материал: {{ data.material }}</p>
-        <p>Диаметр: {{ data.diameter }}</p>
-        <p>Вес монеты: {{ data.coin_weight }}</p>
-        <p>Тираж: {{ data.circulation }}</p>
-        <p>Гурт: {{ data.edge }}</p>
-        <p>Особенности: {{ data.features }}</p>
+        <coin-desc v-bind:data=data></coin-desc>
         <a v-bind:href="'/coin/'+ data.id">Подробнее</a>
     </div>
 </template>

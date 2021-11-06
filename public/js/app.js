@@ -2079,21 +2079,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {},
@@ -2145,6 +2130,128 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "CoinDesc",
+  props: {
+    data: {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "CoinInputs",
+  data: function data() {
+    return {
+      listcountry: [],
+      newcountry: null
+    };
+  },
+  props: {
+    data: {
+      country: {
+        name: {
+          defoult: ""
+        }
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.loadCountry();
+  },
+  methods: {
+    loadCountry: function loadCountry() {
+      var _this = this;
+
+      var country = [];
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/country').then(function (res) {
+        // res.data.forEach(function (el) {
+        //     if (el.name !== undefined)
+        //         country.push(el.name);
+        // });
+        _this.listcountry = res.data;
+      });
+    },
+    savecountry: function savecountry() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
+        params: this.newcountry
+      }).then(function (res) {
+        if (res.status == 200) {
+          _this2.listcountry.push(res.data.name);
+
+          _this2.data.country = res.data;
+          _this2.newcountry = '';
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=script&lang=js& ***!
@@ -2158,8 +2265,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2168,37 +2273,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinNew",
-  components: {
-    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
-    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide
-  },
   data: function data() {
     return {
       data: {
@@ -2215,16 +2292,11 @@ __webpack_require__.r(__webpack_exports__);
         features: '',
         images: null
       },
-      listcountry: [],
-      countryvalue: null,
-      newcountry: null,
-      newimage: null,
       files: ''
     };
   },
   methods: {
     saveNewCoin: function saveNewCoin() {
-      this.data.country.name = this.countryvalue;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coin/', {
         params: this.data
       }).then(function (res) {
@@ -2234,68 +2306,7 @@ __webpack_require__.r(__webpack_exports__);
 
         console.log(res.data);
       });
-    },
-    loadCountry: function loadCountry() {
-      var _this = this;
-
-      var country = [];
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/country').then(function (res) {
-        res.data.forEach(function (el) {
-          if (el.name !== undefined) country.push(el.name);
-        });
-        _this.listcountry = country;
-        _this.countryvalue = _this.data.country.name;
-      });
-    },
-    handleFileUploads: function handleFileUploads(event) {
-      this.files = event.target.files;
-    },
-    savecountry: function savecountry() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
-        params: this.newcountry
-      }).then(function (res) {
-        if (res.status == 200) {
-          _this2.listcountry.push(res.data.name);
-
-          _this2.countryvalue = res.data.name;
-          _this2.newcountry = '';
-        }
-      });
-    },
-    saveimage: function saveimage() {
-      var _this3 = this;
-
-      var formData = new FormData();
-
-      for (var i = 0; i < this.files.length; i++) {
-        var file = this.files[i];
-        formData.append('files[' + i + ']', file);
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then(function (res) {
-        if (res.status == 200) {
-          if (_this3.data.images == null) _this3.data.images = [];
-          res.data.forEach(function (image) {
-            this.data.images.push(image);
-          }, _this3);
-          _this3.newimage = '';
-        }
-      });
-    },
-    deleteImage: function deleteImage(index) {
-      this.newimage = '1';
-      this.data.images.splice(index, 1);
-      this.newimage = '';
     }
-  },
-  mounted: function mounted() {
-    this.loadCountry();
   }
 });
 
@@ -2316,14 +2327,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2419,8 +2422,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2431,43 +2432,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinUpdate",
-  components: {
-    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
-    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide
-  },
   data: function data() {
     return {
-      listcountry: [],
-      countryvalue: null,
-      newcountry: null,
-      newimage: null,
-      files: '',
       data: {}
     };
   },
@@ -2482,23 +2451,9 @@ __webpack_require__.r(__webpack_exports__);
         _this.data = res.data;
       }
     });
-    this.loadCountry();
   },
   methods: {
-    loadCountry: function loadCountry() {
-      var _this2 = this;
-
-      var country = [];
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/country').then(function (res) {
-        res.data.forEach(function (el) {
-          if (el.name !== undefined) country.push(el.name);
-        });
-        _this2.listcountry = country;
-        _this2.countryvalue = _this2.data.country.name;
-      });
-    },
     editCoin: function editCoin() {
-      this.data.country.name = this.countryvalue;
       axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/coin/' + this.data.id, {
         params: this.data
       }).then(function (res) {
@@ -2506,52 +2461,6 @@ __webpack_require__.r(__webpack_exports__);
           window.location.href = '/coin/' + res.data;
         }
       });
-    },
-    handleFileUploads: function handleFileUploads(event) {
-      this.files = event.target.files;
-    },
-    savecountry: function savecountry() {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
-        params: this.newcountry
-      }).then(function (res) {
-        if (res.status == 200) {
-          _this3.listcountry.push(res.data.name);
-
-          _this3.countryvalue = res.data.name;
-          _this3.newcountry = '';
-        }
-      });
-    },
-    saveimage: function saveimage() {
-      var _this4 = this;
-
-      var formData = new FormData();
-
-      for (var i = 0; i < this.files.length; i++) {
-        var file = this.files[i];
-        formData.append('files[' + i + ']', file);
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then(function (res) {
-        if (res.status == 200) {
-          if (_this4.data.images == null) _this4.data.images = [];
-          res.data.forEach(function (image) {
-            this.data.images.push(image);
-          }, _this4);
-          _this4.newimage = '';
-        }
-      });
-    },
-    deleteImage: function deleteImage(index) {
-      this.newimage = '1';
-      this.data.images.splice(index, 1);
-      this.newimage = '';
     },
     deleteCoin: function deleteCoin() {
       axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/coin/' + this.id).then(function (res) {
@@ -2714,6 +2623,89 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ImageUpload",
+  data: function data() {
+    return {
+      newimage: null
+    };
+  },
+  components: {
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Carousel,
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_1__.Slide
+  },
+  props: {
+    data: {}
+  },
+  methods: {
+    handleFileUploads: function handleFileUploads(event) {
+      this.files = event.target.files;
+    },
+    saveimage: function saveimage() {
+      var _this = this;
+
+      var formData = new FormData();
+
+      for (var i = 0; i < this.files.length; i++) {
+        var file = this.files[i];
+        formData.append('files[' + i + ']', file);
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image/', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
+        if (res.status == 200) {
+          if (_this.data.images == null) _this.data.images = [];
+          res.data.forEach(function (image) {
+            this.data.images.push(image);
+          }, _this);
+          _this.newimage = '';
+        }
+      });
+    },
+    deleteImage: function deleteImage(index) {
+      this.data.images.splice(index, 1);
+      this.newimage = '';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -2751,6 +2743,9 @@ Vue.component('coin-new', __webpack_require__(/*! ./components/CoinNew.vue */ ".
 Vue.component('coin-update', __webpack_require__(/*! ./components/CoinUpdate.vue */ "./resources/js/components/CoinUpdate.vue")["default"]);
 Vue.component('coin-sidebar-filter', __webpack_require__(/*! ./components/CoinSidebarFilter.vue */ "./resources/js/components/CoinSidebarFilter.vue")["default"]);
 Vue.component('coin-page', __webpack_require__(/*! ./components/CoinPage.vue */ "./resources/js/components/CoinPage.vue")["default"]);
+Vue.component('coin-desc', __webpack_require__(/*! ./components/CoinDesc.vue */ "./resources/js/components/CoinDesc.vue")["default"]);
+Vue.component('image-upload', __webpack_require__(/*! ./components/ImageUpload.vue */ "./resources/js/components/ImageUpload.vue")["default"]);
+Vue.component('coin-inputs', __webpack_require__(/*! ./components/CoinInputs.vue */ "./resources/js/components/CoinInputs.vue")["default"]);
 
 Vue.component('multiselect', (vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default()));
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
@@ -44053,6 +44048,84 @@ component.options.__file = "resources/js/components/CoinBlock.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/CoinDesc.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/CoinDesc.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true& */ "./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true&");
+/* harmony import */ var _CoinDesc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoinDesc.vue?vue&type=script&lang=js& */ "./resources/js/components/CoinDesc.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CoinDesc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "69df55a6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CoinDesc.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinInputs.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/CoinInputs.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true& */ "./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true&");
+/* harmony import */ var _CoinInputs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CoinInputs.vue?vue&type=script&lang=js& */ "./resources/js/components/CoinInputs.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CoinInputs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "3bdc7b85",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CoinInputs.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinNew.vue":
 /*!*********************************************!*\
   !*** ./resources/js/components/CoinNew.vue ***!
@@ -44332,6 +44405,45 @@ component.options.__file = "resources/js/components/CoinsList.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ImageUpload.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/ImageUpload.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true& */ "./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true&");
+/* harmony import */ var _ImageUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImageUpload.vue?vue&type=script&lang=js& */ "./resources/js/components/ImageUpload.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ImageUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "e0921fbe",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ImageUpload.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CoinBlock.vue?vue&type=script&lang=js&":
 /*!************************************************************************!*\
   !*** ./resources/js/components/CoinBlock.vue?vue&type=script&lang=js& ***!
@@ -44345,6 +44457,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinBlock.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinBlock.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinDesc.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/CoinDesc.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinDesc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinDesc.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinDesc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinInputs.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/CoinInputs.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinInputs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinInputs.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinInputs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -44460,6 +44604,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ImageUpload.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/ImageUpload.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImageUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImageUpload.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ImageUpload_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&":
 /*!****************************************************************************************************!*\
   !*** ./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& ***!
@@ -44571,6 +44731,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_template_id_753ba4a1_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinBlock_vue_vue_type_template_id_753ba4a1_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinBlock.vue?vue&type=template&id=753ba4a1&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinBlock.vue?vue&type=template&id=753ba4a1&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinDesc_vue_vue_type_template_id_69df55a6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinInputs_vue_vue_type_template_id_3bdc7b85_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true&");
 
 
 /***/ }),
@@ -44690,6 +44884,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinsList_vue_vue_type_template_id_8ed37c36_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CoinsList_vue_vue_type_template_id_8ed37c36_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CoinsList.vue?vue&type=template&id=8ed37c36&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinsList.vue?vue&type=template&id=8ed37c36&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ImageUpload_vue_vue_type_template_id_e0921fbe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true&");
 
 
 /***/ }),
@@ -44948,29 +45159,7 @@ var render = function () {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Страна: " + _vm._s(_vm.data.country ? _vm.data.country.name : "")
-        ),
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Номинал: " + _vm._s(_vm.data.denomination))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Тип монеты: " + _vm._s(_vm.data.coin_type))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Материал: " + _vm._s(_vm.data.material))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Диаметр: " + _vm._s(_vm.data.diameter))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Вес монеты: " + _vm._s(_vm.data.coin_weight))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Тираж: " + _vm._s(_vm.data.circulation))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.edge))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
+      _c("coin-desc", { attrs: { data: _vm.data } }),
       _vm._v(" "),
       _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
         _vm._v("Подробнее"),
@@ -44986,10 +45175,57 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinDesc.vue?vue&type=template&id=69df55a6&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "coin-desc" }, [
+    _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "Страна: " + _vm._s(_vm.data.country ? _vm.data.country.name : "")
+      ),
+    ]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Номинал: " + _vm._s(_vm.data.denomination))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Материал: " + _vm._s(_vm.data.material))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Диаметр:" + _vm._s(_vm.data.diameter))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Вес монеты: " + _vm._s(_vm.data.coin_weight))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Тираж:" + _vm._s(_vm.data.circulation))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.edge))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinInputs.vue?vue&type=template&id=3bdc7b85&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45004,34 +45240,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "coin-new" },
     [
-      _c("h2", [_vm._v("Создать новый")]),
-      _vm._v(" "),
-      _vm.data.images
-        ? _c(
-            "carousel",
-            { key: _vm.newimage, attrs: { autoplay: true, "per-page": 1 } },
-            _vm._l(_vm.data.images, function (image, index) {
-              return _c("slide", { key: index }, [
-                _c("img", {
-                  staticClass: "slide-img",
-                  attrs: { src: image.url, alt: "coin" },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "button", value: "Удалить изображение" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.deleteImage(index)
-                    },
-                  },
-                }),
-              ])
-            }),
-            1
-          )
-        : _vm._e(),
+      _c("image-upload", { attrs: { data: _vm.data } }),
       _vm._v(" "),
       _c("p", [
         _vm._v("Год: "),
@@ -45060,15 +45270,19 @@ var render = function () {
       _c(
         "p",
         [
-          _vm._v("Страна: "),
+          _vm._v("Страна:\n        "),
           _c("multiselect", {
-            attrs: { options: _vm.listcountry },
+            attrs: {
+              options: _vm.listcountry,
+              label: "name",
+              "track-by": "name",
+            },
             model: {
-              value: _vm.countryvalue,
+              value: _vm.data.country,
               callback: function ($$v) {
-                _vm.countryvalue = $$v
+                _vm.$set(_vm.data, "country", $$v)
               },
-              expression: "countryvalue",
+              expression: "data.country",
             },
           }),
         ],
@@ -45076,7 +45290,7 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("p", [
-        _vm._v("Добавить страну:\n            "),
+        _vm._v("Добавить страну:\n        "),
         _c("input", {
           directives: [
             {
@@ -45103,32 +45317,6 @@ var render = function () {
           on: {
             click: function ($event) {
               return _vm.savecountry()
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Добавить изображение:\n            "),
-        _c("input", {
-          ref: "files",
-          attrs: {
-            id: "files",
-            type: "file",
-            placeholder: "отредактируй меня",
-          },
-          on: {
-            change: function ($event) {
-              return _vm.handleFileUploads($event)
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "button", value: "Сохранить" },
-          on: {
-            click: function ($event) {
-              return _vm.saveimage()
             },
           },
         }),
@@ -45301,6 +45489,40 @@ var render = function () {
           },
         }),
       ]),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CoinNew.vue?vue&type=template&id=c864d198&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "coin-new" },
+    [
+      _c("h2", [_vm._v("Создать новый")]),
+      _vm._v(" "),
+      _c("coin-inputs", { attrs: { data: _vm.data } }),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "button", value: "Сохранить" },
@@ -45359,27 +45581,7 @@ var render = function () {
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("p", [_vm._v("Год: " + _vm._s(_vm.data.year))]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Страна: " + _vm._s(_vm.data.country ? _vm.data.country.name : "")
-        ),
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Номинал: " + _vm._s(_vm.data.denomination))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Материал: " + _vm._s(_vm.data.material))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Диаметр:" + _vm._s(_vm.data.diameter))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Вес монеты: " + _vm._s(_vm.data.coin_weight))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Тираж:" + _vm._s(_vm.data.circulation))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Гурт: " + _vm._s(_vm.data.edge))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Особенности: " + _vm._s(_vm.data.features))]),
+      _c("coin-desc", { attrs: { data: _vm.data } }),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "button", value: "Изменить" },
@@ -45391,7 +45593,7 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("input", {
-        attrs: { type: "button", value: "Добавить в коллекию" },
+        attrs: { type: "button", value: "Добавить в коллекцию" },
         on: {
           click: function ($event) {
             return _vm.addCollection()
@@ -45467,299 +45669,7 @@ var render = function () {
       _vm._v(" "),
       _c("p", [_vm._v("id: " + _vm._s(_vm.data.id))]),
       _vm._v(" "),
-      _vm.data.images
-        ? _c(
-            "carousel",
-            { key: _vm.newimage, attrs: { autoplay: true, "per-page": 1 } },
-            _vm._l(_vm.data.images, function (image, index) {
-              return _c("slide", { key: index }, [
-                _c("img", {
-                  staticClass: "slide-img",
-                  attrs: { src: image.url, alt: "coin" },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "button", value: "Удалить изображение" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.deleteImage(index)
-                    },
-                  },
-                }),
-              ])
-            }),
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Год: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.year,
-              expression: "data.year",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.year },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "year", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c(
-        "p",
-        [
-          _vm._v("Страна: "),
-          _c("multiselect", {
-            attrs: { options: _vm.listcountry },
-            model: {
-              value: _vm.countryvalue,
-              callback: function ($$v) {
-                _vm.countryvalue = $$v
-              },
-              expression: "countryvalue",
-            },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Добавить страну:\n        "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.newcountry,
-              expression: "newcountry",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.newcountry },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.newcountry = $event.target.value
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "button", value: "Сохранить" },
-          on: {
-            click: function ($event) {
-              return _vm.savecountry()
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Добавить изображение:\n        "),
-        _c("input", {
-          ref: "files",
-          attrs: {
-            id: "files",
-            type: "file",
-            placeholder: "отредактируй меня",
-          },
-          on: {
-            change: function ($event) {
-              return _vm.handleFileUploads($event)
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "button", value: "Сохранить" },
-          on: {
-            click: function ($event) {
-              return _vm.saveimage()
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Номинал: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.denomination,
-              expression: "data.denomination",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.denomination },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "denomination", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Материал: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.material,
-              expression: "data.material",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.material },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "material", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Диаметр: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.diameter,
-              expression: "data.diameter",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.diameter },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "diameter", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Вес монеты: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.coin_weight,
-              expression: "data.coin_weight",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.coin_weight },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "coin_weight", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Тираж: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.circulation,
-              expression: "data.circulation",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.circulation },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "circulation", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Гурт: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.edge,
-              expression: "data.edge",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.edge },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "edge", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Особенности: "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.data.features,
-              expression: "data.features",
-            },
-          ],
-          attrs: { placeholder: "отредактируй меня" },
-          domProps: { value: _vm.data.features },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.data, "features", $event.target.value)
-            },
-          },
-        }),
-      ]),
+      _c("coin-inputs", { attrs: { data: _vm.data } }),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "button", value: "Сохранить" },
@@ -45914,6 +45824,86 @@ var render = function () {
     _vm._l(_vm.coins, function (coin) {
       return _c("coin-block", { key: coin.id, attrs: { data: coin } })
     }),
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ImageUpload.vue?vue&type=template&id=e0921fbe&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm.data.images
+        ? _c(
+            "carousel",
+            { key: _vm.newimage, attrs: { autoplay: true, "per-page": 1 } },
+            _vm._l(_vm.data.images, function (image, index) {
+              return _c("slide", { key: index }, [
+                _c("img", {
+                  staticClass: "slide-img",
+                  attrs: { src: image.url, alt: "coin" },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "button", value: "Удалить изображение" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.deleteImage(index)
+                    },
+                  },
+                }),
+              ])
+            }),
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Добавить изображение:\n        "),
+        _c("input", {
+          ref: "files",
+          attrs: {
+            id: "files",
+            type: "file",
+            placeholder: "отредактируй меня",
+          },
+          on: {
+            change: function ($event) {
+              return _vm.handleFileUploads($event)
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "button", value: "Сохранить" },
+          on: {
+            click: function ($event) {
+              return _vm.saveimage()
+            },
+          },
+        }),
+      ]),
+    ],
     1
   )
 }
