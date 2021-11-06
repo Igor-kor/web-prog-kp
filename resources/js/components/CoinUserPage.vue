@@ -10,6 +10,8 @@
         <p>Описание: {{ data.description }}</p>
         <p>id coin: {{ data.coin?data.coin.id:""}}</p>
         <coin-desc v-bind:data=data.coin></coin-desc>
+        <input @click="editCoin()" type="button" value="Изменить">
+        <input @click="deleteCoin()" type="button" value="Удалить">
     </div>
 </template>
 
@@ -44,6 +46,22 @@ export default {
                     this.data = res.data;
                 }
             });
+    },
+    methods:{
+        editCoin() {
+            window.location.href =  window.location.href+'/edit/';
+        },
+        addCollection() {
+
+        },
+        deleteCoin() {
+            axios.delete('/api/coinuser/'+this.id)
+                .then(res => {
+                    if (res.status == 200) {
+                        window.location.href = "/mycollectcoin";
+                    }
+                });
+        }
     }
 }
 </script>
