@@ -2,7 +2,7 @@
     <div class="coin-new">
         <h2>Создать новый</h2>
         <coin-inputs v-bind:data=data></coin-inputs>
-        <input @click="saveNewCoin()" type="button" value="Сохранить">
+        <input class="btn btn-primary" @click="saveNewCoin()" type="button" value="Сохранить">
     </div>
 </template>
 
