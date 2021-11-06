@@ -49,8 +49,8 @@ class CoinController extends Controller
         $data = $request->get('params');
         $coin = new Coin;
         $coin->year = $data['year'];
-        if(!empty($data["country"]["name"]))
-            $coin->country_id = Country::where('name', '=', $data["country"]["name"])->firstOrFail()->id;
+        if(!empty($data["country"]))
+            $coin->country_id = $data["id"];
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
         $coin->diameter = $data['diameter'];
@@ -107,8 +107,8 @@ class CoinController extends Controller
         if(!$coin)
             return response('Not found',404);
         $coin->year = $data['year'];
-        if(!empty($data["country"]["name"]))
-            $coin->country_id = Country::where('name', '=', $data["country"]["name"])->firstOrFail()->id;
+        if(!empty($data["country"]))
+            $coin->country_id = $data["id"];
         else
             $coin->country_id = null;
         foreach ($data['images'] as $image){

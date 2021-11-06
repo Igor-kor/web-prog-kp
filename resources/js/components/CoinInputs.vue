@@ -45,10 +45,6 @@ export default {
             let country = [];
             axios.get('/api/country')
                 .then(res => {
-                    // res.data.forEach(function (el) {
-                    //     if (el.name !== undefined)
-                    //         country.push(el.name);
-                    // });
                     this.listcountry = res.data;
                 });
         },

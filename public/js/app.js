@@ -2226,10 +2226,6 @@ __webpack_require__.r(__webpack_exports__);
 
       var country = [];
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/country').then(function (res) {
-        // res.data.forEach(function (el) {
-        //     if (el.name !== undefined)
-        //         country.push(el.name);
-        // });
         _this.listcountry = res.data;
       });
     },
