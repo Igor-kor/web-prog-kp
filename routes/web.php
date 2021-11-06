@@ -38,10 +38,6 @@ Route::get('/coinuser/{id}/edit', function ($id) {
 })->middleware('auth')->name('coinuser');
 Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
 Route::get('/mycollectcoin', function () {
     return view('coins.my_coins');
 })->middleware('auth')->name('mycollectcoin');

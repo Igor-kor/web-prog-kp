@@ -52,9 +52,6 @@
                         {{ __('My Coins Colection') }}
                     </x-nav-link>
                 @endauth
-                <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
-                    {{ __('About') }}
-                </x-nav-link>
             </ul>
 
             <!-- Right Side Of Navbar -->
