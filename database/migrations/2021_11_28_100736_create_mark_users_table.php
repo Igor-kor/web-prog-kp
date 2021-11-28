@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMarksUsersTable extends Migration
+class CreateMarkUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateMarksUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('marks_users', function (Blueprint $table) {
+        Schema::create('mark_users', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignIdFor(Mark::class);
@@ -33,6 +33,6 @@ class CreateMarksUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marks_users');
+        Schema::dropIfExists('mark_users');
     }
 }

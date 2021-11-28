@@ -46,7 +46,7 @@ name: "MarkPage",
             window.location.href =  window.location.href+'/edit/';
         },
         addCollection() {
-            window.location.href = 'markusernew/' + this.data.id;
+            window.location.href = '/markusernew/' + this.data.id;
         },
         deleteMark() {
             axios.delete('/api/mark/'+this.id)

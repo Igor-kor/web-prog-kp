@@ -43,6 +43,12 @@ Vue.component('mark-page', require('./components/MarkPage.vue').default);
 Vue.component('mark-new', require('./components/MarkNew.vue').default);
 Vue.component('mark-inputs', require('./components/MarkInputs.vue').default);
 Vue.component('mark-update', require('./components/MarkUpdate.vue').default);
+Vue.component('mark-user-list', require('./components/MarkUserList.vue').default);
+Vue.component('mark-user-block', require('./components/MarkUserBlock.vue').default);
+Vue.component('mark-user-new', require('./components/MarkUserNew.vue').default);
+Vue.component('mark-user-page', require('./components/MarkUserPage.vue').default);
+Vue.component('mark-user-update', require('./components/MarkUserUpdate.vue').default);
+Vue.component('mark-user-inputs', require('./components/MarkUserInputs.vue').default);
 
 import Multiselect from 'vue-multiselect';
 Vue.component('multiselect', Multiselect);

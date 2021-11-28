@@ -48,9 +48,23 @@ Route::get('/mark/{id}/edit', function ($id) {
     return view('marks.edit_mark',['id'=>$id]);
 })->middleware('auth')->name('mark');
 
+
 Route::get('/mycollectcoin', function () {
     return view('coins.my_coins');
 })->middleware('auth')->name('mycollectcoin');
+
+Route::get('/mycollectmark', function () {
+    return view('marks.my_marks');
+})->middleware('auth')->name('mycollectmark');
+Route::get('/markusernew/{id}', function ($id) {
+    return view('marks.new_mark_user',['id'=>$id]);
+})->name('markusernew');
+Route::get('/markuser/{id}', function ($id) {
+    return view('marks.mark_user_page',['id'=>$id]);
+})->name('markuser');
+Route::get('/markuser/{id}/edit', function ($id) {
+    return view('marks.edit_mark_user',['id'=>$id]);
+})->middleware('auth')->name('markuser');
 
 require __DIR__.'/auth.php';
 

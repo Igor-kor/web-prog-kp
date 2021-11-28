@@ -54,6 +54,9 @@
                     <x-nav-link :href="route('mycollectcoin')" :active="request()->routeIs('mycollectcoin')">
                         {{ __('My Coins Colection') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('mycollectmark')" :active="request()->routeIs('mycollectmark')">
+                        {{ __('My Marks Colection') }}
+                    </x-nav-link>
                 @endauth
             </ul>
 

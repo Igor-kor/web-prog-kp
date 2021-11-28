@@ -23,6 +23,7 @@ Route::apiResources(
         'coin'=>App\Http\Controllers\Resource\CoinController::class,
         'coinuser'=>App\Http\Controllers\Resource\CoinUser::class,
         'mark'=>App\Http\Controllers\Resource\MarkController::class,
+        'markuser'=>App\Http\Controllers\Resource\MarkUser::class,
         'country'=>App\Http\Controllers\Resource\Country::class,
         'image'=>App\Http\Controllers\Resource\Image::class,
     ]
