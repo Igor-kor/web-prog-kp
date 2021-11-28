@@ -6,7 +6,7 @@
             </slide>
         </carousel>
         <mark-desc v-bind:data=data></mark-desc>
-        <a v-bind:href="'/coin/'+ data.id">Подробнее</a>
+        <a v-bind:href="'/mark/'+ data.id">Подробнее</a>
     </div>
 </template>
 
