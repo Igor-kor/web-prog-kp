@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html{
+    width: 100%;
+}
+
+body{
+    margin: 0;
+}
+
+.VueCarousel-dot{
+    background-color: #02275d!important;
+}
+
+input[type=button] {
+    @extend .btn, .btn-outline-secondary;
+}

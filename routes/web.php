@@ -17,16 +17,31 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/marks', function () {
-    return view('/marks/marks');
-})->middleware(['auth'])->name('marks');
+Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
+Route::get('/coin/{id}', function ($id) {
+    return view('coins.coin_page',['id'=>$id]);
+})->name('coin');
+Route::get('/coinuser/{id}', function ($id) {
+    return view('coins.coin_user_page',['id'=>$id]);
+})->name('coinuser');
+Route::get('/coinusernew/{id}', function ($id) {
+    return view('coins.new_coin_user',['id'=>$id]);
+})->name('coinusernew');
+Route::get('/new_coin', function () {
+    return view('coins.new_coin');
+})->middleware('auth')->name('new_coin');
+Route::get('/coin/{id}/edit', function ($id) {
+    return view('coins.edit_coin',['id'=>$id]);
+})->middleware('auth')->name('coin');
+Route::get('/coinuser/{id}/edit', function ($id) {
+    return view('coins.edit_coin_user',['id'=>$id]);
+})->middleware('auth')->name('coinuser');
+Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
 
-Route::get('/coins', function () {
-    return view('/coins/coins');
-})->middleware(['auth'])->name('coins');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/mycollectcoin', function () {
+    return view('coins.my_coins');
+})->middleware('auth')->name('mycollectcoin');
 
 require __DIR__.'/auth.php';
+
+
