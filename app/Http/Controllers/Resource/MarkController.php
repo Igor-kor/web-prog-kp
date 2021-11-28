@@ -56,7 +56,13 @@ class MarkController extends Controller
      */
     public function show($id)
     {
-        //
+        $mark = Mark::find($id);
+        if(!$mark){
+            abort(404,'Coin not found!');
+        }
+        $mark->country;
+        $mark->images;
+        return $mark;
     }
 
     /**
@@ -90,6 +96,10 @@ class MarkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mark = Mark::find($id);
+        if(!$mark)
+            return response('Not found',404);
+        $mark->delete();
+        return response('Success',200);
     }
 }

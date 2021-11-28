@@ -37,6 +37,9 @@ Route::get('/coinuser/{id}/edit', function ($id) {
     return view('coins.edit_coin_user',['id'=>$id]);
 })->middleware('auth')->name('coinuser');
 Route::get('/marks', [App\Http\Controllers\Mark\MarksController::class, 'getMarks'])->name('marks');
+Route::get('/mark/{id}', function ($id) {
+    return view('marks.mark_page',['id'=>$id]);
+})->name('mark');
 
 Route::get('/mycollectcoin', function () {
     return view('coins.my_coins');
