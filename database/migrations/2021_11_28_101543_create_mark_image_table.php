@@ -13,7 +13,7 @@ class CreateMarkImageTable extends Migration
      */
     public function up()
     {
-        Schema::create('mark_image', function (Blueprint $table) {
+        Schema::create('image_mark', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('mark_id');
             $table->foreign('mark_id')->references('id')->on('marks')->onDelete('cascade');
@@ -30,6 +30,6 @@ class CreateMarkImageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mark_image');
+        Schema::dropIfExists('image_mark');
     }
 }

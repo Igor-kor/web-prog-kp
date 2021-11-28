@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mark;
 use Illuminate\Http\Request;
 
 class MarkController extends Controller
@@ -15,6 +16,15 @@ class MarkController extends Controller
     public function index()
     {
         //
+        $mark = Mark::get();
+        if(!$mark){
+            abort(404,'Coin not found!');
+        }
+        foreach ($mark as $item){
+            $item->country;
+            $item->images;
+        }
+        return $mark;
     }
 
     /**

@@ -35,6 +35,11 @@ Vue.component('coin-user-page', require('./components/CoinUserPage.vue').default
 Vue.component('coin-user-update', require('./components/CoinUserUpdate.vue').default);
 Vue.component('coin-user-inputs', require('./components/CoinUserInputs.vue').default);
 Vue.component('coin-user-new', require('./components/CoinUserNew.vue').default);
+
+Vue.component('mark-list', require('./components/MarkList.vue').default);
+Vue.component('mark-block', require('./components/MarkBlock.vue').default);
+Vue.component('mark-desc', require('./components/MarkDesc.vue').default);
+
 import Multiselect from 'vue-multiselect';
 Vue.component('multiselect', Multiselect);
 

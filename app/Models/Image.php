@@ -13,4 +13,9 @@ class Image extends Model
     {
         return $this->belongsToMany(Coin::class);
     }
+
+    public function Marks()
+    {
+        return $this->belongsToMany(Mark::class);
+    }
 }

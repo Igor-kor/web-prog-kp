@@ -13,6 +13,7 @@ class CreateCoinImageTable extends Migration
      */
     public function up()
     {
+        // названия таблички должно быть в алфавитном порядке, иначе связь не будет установлена
         Schema::create('coin_image', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('coin_id');
@@ -30,6 +31,6 @@ class CreateCoinImageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coin_images');
+        Schema::dropIfExists('coin_image');
     }
 }
