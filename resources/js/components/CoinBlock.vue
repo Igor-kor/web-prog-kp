@@ -1,5 +1,5 @@
 <template>
-    <div class="coin-block">
+    <div class="coin-block p-6 bg-white border-b border-gray-200">
         <carousel :autoplay="true" :per-page="1" v-if="data.images">
             <slide v-for="(image, index) in data.images" :key="index">
                 <img v-bind:src=image.url alt="coin">
@@ -37,6 +37,7 @@ export default {
     background-color: #f5f4f4;
     align-content: center;
     text-align: center;
+    margin: 15px;
 }
 
 .coin-block img {

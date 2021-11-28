@@ -18,3 +18,7 @@ body{
 .VueCarousel-dot{
     background-color: #02275d!important;
 }
+
+input[type=button] {
+    @extend .btn, .btn-outline-secondary;
+}
