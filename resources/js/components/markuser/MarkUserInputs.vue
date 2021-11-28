@@ -15,7 +15,7 @@ name: "MarkUserInputs",
     data() {
         return {
             safetyoption:[
-                'PF','PL','BU','UNC','AU+','AU','XF+','XF','VF+','VF','F','VG','G','AG','FA','PR'
+                'MNH OG','MNH','MLH','MVLH','MH','POG','UH','Mounted','NG','Sans gomme','O.G.','CTO','Used','G/VG','Fine','VF','XF'
             ],
         }
     },
