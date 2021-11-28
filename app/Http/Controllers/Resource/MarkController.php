@@ -45,7 +45,26 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->get('params');
+        $mark = new Mark();
+        $mark->year = $data['year'];
+        $mark->country_id = null;
+        if(!empty($data["country"]))
+            $mark->country_id = $data["country"]["id"];
+        else
+            $mark->country_id = null;
+        $mark->denomination = $data['denomination'];
+        $mark->material = $data['material'];
+        $mark->circulation = $data['circulation'];
+        $mark->features = $data['features'];
+        $mark->save();
+        // достать все id и в сводную таблицу засинхронит с новой монетой
+        $image_id_array = [];
+        foreach ($data['images'] as $image) {
+            $image_id_array[$image['id']] = ['mark_id' => $mark->id];
+        }
+        $mark->images()->sync($image_id_array);
+        return response($mark->id,200);
     }
 
     /**

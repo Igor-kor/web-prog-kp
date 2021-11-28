@@ -50,9 +50,10 @@ class CoinController extends Controller
         $data = $request->get('params');
         $coin = new Coin;
         $coin->year = $data['year'];
-        $coin->country_id = null;
         if(!empty($data["country"]))
-            $coin->country_id = $data["id"];
+            $coin->country_id = $data["country"]["id"];
+        else
+            $coin->country_id = null;
         $coin->denomination = $data['denomination'];
         $coin->material = $data['material'];
         $coin->diameter = $data['diameter'];
