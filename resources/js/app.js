@@ -42,6 +42,7 @@ Vue.component('mark-desc', require('./components/MarkDesc.vue').default);
 Vue.component('mark-page', require('./components/MarkPage.vue').default);
 Vue.component('mark-new', require('./components/MarkNew.vue').default);
 Vue.component('mark-inputs', require('./components/MarkInputs.vue').default);
+Vue.component('mark-update', require('./components/MarkUpdate.vue').default);
 
 import Multiselect from 'vue-multiselect';
 Vue.component('multiselect', Multiselect);

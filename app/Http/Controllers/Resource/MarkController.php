@@ -104,7 +104,27 @@ class MarkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->get('params');
+        $mark = Mark::find($id);
+        if(!$mark)
+            return response('Not found',404);
+        $mark->year = $data['year'];
+        if(!empty($data["country"]))
+            $mark->country_id = $data["country"]["id"];
+        else
+            $mark->country_id = null;
+        // достать все id и в сводную таблицу засинхронит с новой монетой
+        $image_id_array = [];
+        foreach ($data['images'] as $image) {
+            $image_id_array[$image['id']] = ['mark_id' => $mark->id];
+        }
+        $mark->images()->sync($image_id_array);
+        $mark->denomination = $data['denomination'];
+        $mark->material = $data['material'];
+        $mark->circulation = $data['circulation'];
+        $mark->features = $data['features'];
+        $mark->save();
+        return response($mark->id,200);
     }
 
     /**
