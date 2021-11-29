@@ -2114,7 +2114,7 @@ __webpack_require__.r(__webpack_exports__);
         formData.append('files[' + i + ']', file);
       }
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image/', formData, {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/image', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -2278,7 +2278,7 @@ __webpack_require__.r(__webpack_exports__);
     savecountry: function savecountry() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country', {
         params: this.newcountry
       }).then(function (res) {
         if (res.status == 200) {
@@ -2339,7 +2339,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveNewCoin: function saveNewCoin() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coin/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coin', {
         params: this.data
       }).then(function (res) {
         if (res.status == 200) {
@@ -2714,7 +2714,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editCoin: function editCoin() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coinuser/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coinuser', {
         params: this.data
       }).then(function (res) {
         if (res.status == 200) {
@@ -3021,7 +3021,7 @@ __webpack_require__.r(__webpack_exports__);
     savecountry: function savecountry() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/country', {
         params: this.newcountry
       }).then(function (res) {
         if (res.status == 200) {
@@ -3129,7 +3129,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveNewMark: function saveNewMark() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/mark/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/mark', {
         params: this.data
       }).then(function (res) {
         if (res.status == 200) {
@@ -3456,7 +3456,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editMark: function editMark() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/markuser/', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/markuser', {
         params: this.data
       }).then(function (res) {
         if (res.status == 200) {
@@ -8224,7 +8224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-new .slide-img[data-v-ffa20208]{\r\n    width: 300px;\r\n    height: 300px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-new .slide-img[data-v-ffa20208]{\n    width: 300px;\n    height: 300px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
