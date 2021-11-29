@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         saveNewMark() {
-            axios.post('/api/mark/', {
+            axios.post('/api/mark', {
                 params: this.data
             })
                 .then(res => {

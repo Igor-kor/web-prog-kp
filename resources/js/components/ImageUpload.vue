@@ -40,7 +40,7 @@ name: "ImageUpload",
                 let file = this.files[i];
                 formData.append('files[' + i + ']', file);
             }
-            axios.post('/api/image/',
+            axios.post('/api/image',
                 formData,
                 {
                     headers: {

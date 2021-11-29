@@ -29,7 +29,7 @@ export default {
     },
     methods: {
         editCoin() {
-            axios.post('/api/coinuser/', {
+            axios.post('/api/coinuser', {
                 params: this.data
             })
                 .then(res => {

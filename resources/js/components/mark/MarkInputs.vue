@@ -46,7 +46,7 @@ name: "MarkInputs",
                 });
         },
         savecountry() {
-            axios.post('/api/country/', {
+            axios.post('/api/country', {
                 params: this.newcountry
             })
                 .then(res => {

@@ -28,7 +28,7 @@ name: "MarkUserNew",
     },
     methods: {
         editMark() {
-            axios.post('/api/markuser/', {
+            axios.post('/api/markuser', {
                 params: this.data
             })
                 .then(res => {
