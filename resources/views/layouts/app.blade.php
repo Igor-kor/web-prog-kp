@@ -39,24 +39,25 @@
                     {{ __('Dashboard') }}
                 </x-nav-link>
                 @auth
-                <x-nav-link :href="route('new_coin')" :active="request()->routeIs('new_coin')">
-                    {{ __('New Coin') }}
-                </x-nav-link>
-                <x-nav-link :href="route('new_mark')" :active="request()->routeIs('new_mark')">
-                    {{ __('New Mark') }}
-                </x-nav-link>
-                <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
-                    {{ __('Marks') }}
-                </x-nav-link>
-                <x-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
-                    {{ __('Coins') }}
-                </x-nav-link>
-                <x-nav-link :href="route('mycollectcoin')" :active="request()->routeIs('mycollectcoin')">
-                    {{ __('My Coins Colection') }}
-                </x-nav-link>
-                <x-nav-link :href="route('mycollectmark')" :active="request()->routeIs('mycollectmark')">
-                    {{ __('My Marks Colection') }}
-                </x-nav-link>
+                    <x-nav-link :href="route('coins')" :active="request()->routeIs('coins')">
+                        {{ __('Coins') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('new_coin')" :active="request()->routeIs('new_coin')">
+                        {{ __('New Coin') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('mycollectcoin')" :active="request()->routeIs('mycollectcoin')">
+                        {{ __('My Coins Colection') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('marks')" :active="request()->routeIs('marks')">
+                        {{ __('Marks') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('new_mark')" :active="request()->routeIs('new_mark')">
+                        {{ __('New Mark') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('mycollectmark')" :active="request()->routeIs('mycollectmark')">
+                        {{ __('My Marks Colection') }}
+                    </x-nav-link>
                 @endauth
             </ul>
 
