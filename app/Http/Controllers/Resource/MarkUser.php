@@ -14,7 +14,7 @@ class MarkUser extends Controller
      */
     public function index()
     {
-        $mark = \App\Models\MarkUser::get();
+        $mark = \App\Models\MarkUser::get()->where("user_id", "=", auth()->id());
         if(!$mark){
             abort(404,'Coin not found!');
         }
@@ -53,6 +53,7 @@ class MarkUser extends Controller
         if(!empty ( $data['description']))
             $mark->description = $data['description'];
         $mark->mark_id = $data['mark']['id'];
+        $mark->user_id = auth()->id();
         $mark->save();
         return response($mark,200);
     }

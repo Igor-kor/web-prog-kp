@@ -13,4 +13,8 @@ class CoinUser extends Model
     {
         return $this->belongsTo(Coin::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

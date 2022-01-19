@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CoinUser extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class CoinUser extends Controller
      */
     public function index()
     {
-        $coin = \App\Models\CoinUser::get();
+        $coin = \App\Models\CoinUser::get()->where("user_id", "=", auth()->id());
         if(!$coin){
             abort(404,'Coin not found!');
         }
@@ -53,6 +57,7 @@ class CoinUser extends Controller
         if(!empty ( $data['description']))
             $coin->description = $data['description'];
         $coin->coin_id = $data['coin']['id'];
+        $coin->user_id = auth()->id();
         $coin->save();
         return response($coin,200);
     }

@@ -13,4 +13,8 @@ class MarkUser extends Model
     {
         return $this->belongsTo(Mark::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

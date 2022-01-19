@@ -26,7 +26,7 @@ Route::get('/coinuser/{id}', function ($id) {
 })->name('coinuser');
 Route::get('/coinusernew/{id}', function ($id) {
     return view('coins.new_coin_user',['id'=>$id]);
-})->name('coinusernew');
+})->middleware('auth')->name('coinusernew');
 Route::get('/new_coin', function () {
     return view('coins.new_coin');
 })->middleware('auth')->name('new_coin');
