@@ -18,6 +18,9 @@ Route::get('/', function () {
 })->name('dashboard');
 
 Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
+Route::get('/coinuserslist/{id}',
+    [App\Http\Controllers\Coin\CoinsController::class, 'getCoinUsers']
+)->name('coinuserslist');
 Route::get('/coin/{id}', function ($id) {
     return view('coins.coin_page',['id'=>$id]);
 })->name('coin');

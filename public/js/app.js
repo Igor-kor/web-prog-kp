@@ -2162,6 +2162,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {},
@@ -2593,6 +2594,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
 //
 //
 //
@@ -8285,7 +8288,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-block[data-v-723b8b2e] {\r\n    width: 200px;\r\n    display: inline-block;\r\n    border-width: 2px;\r\n    border-color: #000000;\r\n    border-radius: 6px;\r\n    border-style: solid;\r\n    background-color: #f5f4f4;\r\n    align-content: center;\r\n    text-align: center;\r\n    margin: 15px;\n}\n.coin-block img[data-v-723b8b2e] {\r\n    width: 190px;\r\n    background-size: cover;\n}\n.coin-block[data-v-723b8b2e]:hover {\r\n    background-color: #e5e4e4;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-block[data-v-723b8b2e] {\n    width: 200px;\n    display: inline-block;\n    border-width: 2px;\n    border-color: #000000;\n    border-radius: 6px;\n    border-style: solid;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n    margin: 15px;\n}\n.coin-block img[data-v-723b8b2e] {\n    width: 190px;\n    background-size: cover;\n}\n.coin-block[data-v-723b8b2e]:hover {\n    background-color: #e5e4e4;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8357,7 +8360,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-user-block[data-v-ce57242e] {\r\n    width: 200px;\r\n    display: inline-block;\r\n    border-width: 1px;\r\n    border-color: #f5f4f4;\r\n    border-radius: 6px;\r\n    background-color: #f5f4f4;\r\n    align-content: center;\r\n    text-align: center;\n}\n.coin-user-block img[data-v-ce57242e] {\r\n    margin: 5px;\r\n    width: 200px;\r\n    background-size: cover;\n}\n.coin-user-block[data-v-ce57242e]:hover {\r\n    border-width: 3px;\r\n    border-color: #5b5959;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.coin-user-block[data-v-ce57242e] {\n    width: 200px;\n    display: inline-block;\n    border-width: 1px;\n    border-color: #f5f4f4;\n    border-radius: 6px;\n    background-color: #f5f4f4;\n    align-content: center;\n    text-align: center;\n}\n.coin-user-block img[data-v-ce57242e] {\n    margin: 5px;\n    width: 200px;\n    background-size: cover;\n}\n.coin-user-block[data-v-ce57242e]:hover {\n    border-width: 3px;\n    border-color: #5b5959;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47655,6 +47658,11 @@ var render = function () {
       _c("a", { attrs: { href: "/coin/" + _vm.data.id } }, [
         _vm._v("Подробнее"),
       ]),
+      _c("br"),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/coinuserslist/" + _vm.data.id } }, [
+        _vm._v("Все монеты у пользователей"),
+      ]),
     ],
     1
   )
@@ -48316,6 +48324,13 @@ var render = function () {
       _vm._v(" "),
       _c("a", { attrs: { href: "/coinuser/" + _vm.data.id } }, [
         _vm._v("Подробнее"),
+      ]),
+      _c("br"),
+      _vm._v("\n    Пользователь: " + _vm._s(_vm.data.user_id)),
+      _c("br"),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/collectuser/" + _vm.data.user_id } }, [
+        _vm._v("Коллекция пользователя"),
       ]),
     ],
     1

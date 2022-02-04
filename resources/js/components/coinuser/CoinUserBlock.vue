@@ -9,7 +9,9 @@
         <p>Описание: {{ data.description }}</p>
         <p>id: {{ data.coin.id }}</p>
         <coin-desc v-bind:data=data.coin></coin-desc>
-        <a v-bind:href="'/coinuser/'+ data.id">Подробнее</a>
+        <a v-bind:href="'/coinuser/'+ data.id">Подробнее</a><br>
+        Пользователь: {{data.user_id}}<br>
+        <a v-bind:href="'/collectuser/'+ data.user_id">Коллекция пользователя</a>
     </div>
 </template>
 

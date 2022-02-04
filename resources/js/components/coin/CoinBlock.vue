@@ -6,7 +6,8 @@
             </slide>
         </carousel>
         <coin-desc v-bind:data=data></coin-desc>
-        <a v-bind:href="'/coin/'+ data.id">Подробнее</a>
+        <a v-bind:href="'/coin/'+ data.id">Подробнее</a><br>
+        <a v-bind:href="'/coinuserslist/'+ data.id">Все монеты у пользователей</a>
     </div>
 </template>
 
