@@ -13,12 +13,15 @@ class CoinUser extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $coin = \App\Models\CoinUser::get()->where("user_id", "=", auth()->id());
+        if(!empty($request->user_id))
+            $coin = \App\Models\CoinUser::get()->where("user_id", "=", $request->user_id);
+        else
+            $coin = \App\Models\CoinUser::get()->where("user_id", "=", auth()->id());
         if(!$coin){
             abort(404,'Coin not found!');
         }

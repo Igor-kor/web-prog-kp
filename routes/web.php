@@ -53,6 +53,10 @@ Route::get('/mycollectcoin', function () {
     return view('coins.my_coins');
 })->middleware('auth')->name('mycollectcoin');
 
+Route::get('/collectuser/{id}', function ($id) {
+    return view('coins.user_coins',['id'=>$id]);
+})->middleware('auth')->name('collectuser');
+
 Route::get('/mycollectmark', function () {
     return view('marks.my_marks');
 })->middleware('auth')->name('mycollectmark');

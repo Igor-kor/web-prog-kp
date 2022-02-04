@@ -2702,9 +2702,15 @@ __webpack_require__.r(__webpack_exports__);
     loadCoin: function loadCoin() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coinuser').then(function (res) {
-        _this.coins = res.data;
-      });
+      if (window.user_id != null) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coinuser?user_id=' + window.user_id).then(function (res) {
+          _this.coins = res.data;
+        });
+      } else {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/coinuser').then(function (res) {
+          _this.coins = res.data;
+        });
+      }
     }
   }
 });

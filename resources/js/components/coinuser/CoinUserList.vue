@@ -23,10 +23,18 @@ export default {
     },
     methods: {
         loadCoin() {
-            axios.get('/api/coinuser')
-                .then(res => {
-                    this.coins = res.data;
-                });
+            if(window.user_id != null){
+                axios.get('/api/coinuser?user_id='+ window.user_id )
+                    .then(res => {
+                        this.coins = res.data;
+                    });
+            }else{
+                axios.get('/api/coinuser')
+                    .then(res => {
+                        this.coins = res.data;
+                    });
+            }
+
         }
     }
 }
