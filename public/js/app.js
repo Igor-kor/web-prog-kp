@@ -2611,6 +2611,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CoinUserBlock",
@@ -48331,6 +48332,11 @@ var render = function () {
       _vm._v(" "),
       _c("a", { attrs: { href: "/collectuser/" + _vm.data.user_id } }, [
         _vm._v("Коллекция пользователя"),
+      ]),
+      _c("br"),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "/user/" + _vm.data.user_id } }, [
+        _vm._v("Профиль пользователя"),
       ]),
     ],
     1

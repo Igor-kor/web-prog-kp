@@ -11,7 +11,8 @@
         <coin-desc v-bind:data=data.coin></coin-desc>
         <a v-bind:href="'/coinuser/'+ data.id">Подробнее</a><br>
         Пользователь: {{data.user_id}}<br>
-        <a v-bind:href="'/collectuser/'+ data.user_id">Коллекция пользователя</a>
+        <a v-bind:href="'/collectuser/'+ data.user_id">Коллекция пользователя</a><br>
+        <a v-bind:href="'/user/'+ data.user_id">Профиль пользователя</a>
     </div>
 </template>
 

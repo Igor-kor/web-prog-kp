@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/user/{id}',
+    [App\Http\Controllers\HomeController::class, 'userdata']
+)->name('user');
+
+
 Route::get('/coins', [App\Http\Controllers\Coin\CoinsController::class, 'getCoins'])->name('coins');
 Route::get('/coinuserslist/{id}',
     [App\Http\Controllers\Coin\CoinsController::class, 'getCoinUsers']
