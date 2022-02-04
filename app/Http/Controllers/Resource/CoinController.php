@@ -13,20 +13,31 @@ class CoinController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $coin = Coin::get();
-        if(!$coin){
-            abort(404,'Coin not found!');
+//        $coin = Coin::get();
+//
+//        if(!empty($request->searchname))
+        $coin = Coin::query();
+        if(!empty($request->searchname))
+            $coin->where('denomination', 'LIKE', "%$request->searchname%");
+        if(!empty($request->searccountry))
+            $coin->where('country_id', $request->searccountry);
+        if(!empty($request->searchname))
+            $coin->orWhere('features', 'LIKE', "%$request->searchname%");
+        $coinresponse = $coin->get()->all();
+
+        if (!$coinresponse) {
+            abort(404, 'Coin not found!');
         }
-        foreach ($coin as $item){
+        foreach ($coinresponse as $item) {
             $item->country;
             $item->images;
         }
-        return $coin;
+        return $coinresponse;
     }
 
     /**
@@ -42,7 +53,7 @@ class CoinController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +61,7 @@ class CoinController extends Controller
         $data = $request->get('params');
         $coin = new Coin;
         $coin->year = $data['year'];
-        if(!empty($data["country"]))
+        if (!empty($data["country"]))
             $coin->country_id = $data["country"]["id"];
         else
             $coin->country_id = null;
@@ -68,20 +79,20 @@ class CoinController extends Controller
             $image_id_array[$image['id']] = ['coin_id' => $coin->id];
         }
         $coin->images()->sync($image_id_array);
-        return response($coin->id,200);
+        return response($coin->id, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $coin = Coin::find($id);
-        if(!$coin){
-            abort(404,'Coin not found!');
+        if (!$coin) {
+            abort(404, 'Coin not found!');
         }
         $coin->country;
         $coin->images;
@@ -91,7 +102,7 @@ class CoinController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -102,18 +113,18 @@ class CoinController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $data = $request->get('params');
         $coin = Coin::find($id);
-        if(!$coin)
-            return response('Not found',404);
+        if (!$coin)
+            return response('Not found', 404);
         $coin->year = $data['year'];
-        if(!empty($data["country"]))
+        if (!empty($data["country"]))
             $coin->country_id = $data["country"]["id"];
         else
             $coin->country_id = null;
@@ -131,21 +142,21 @@ class CoinController extends Controller
         $coin->edge = $data['edge'];
         $coin->features = $data['features'];
         $coin->save();
-        return response($coin->id,200);
+        return response($coin->id, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $coin = Coin::find($id);
-        if(!$coin)
-            return response('Not found',404);
+        if (!$coin)
+            return response('Not found', 404);
         $coin->delete();
-        return response('Success',200);
+        return response('Success', 200);
     }
 }
