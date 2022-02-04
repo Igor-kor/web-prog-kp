@@ -26,6 +26,10 @@ class CoinController extends Controller
             $coin->where('denomination', 'LIKE', "%$request->searchname%");
         if(!empty($request->searccountry))
             $coin->where('country_id', $request->searccountry);
+        if(!empty($request->aftereyear))
+            $coin->where('year', '>=', $request->aftereyear);
+        if(!empty($request->beforeyear))
+            $coin->where('year', '<=', $request->beforeyear);
         if(!empty($request->searchname))
             $coin->orWhere('features', 'LIKE', "%$request->searchname%");
         $coinresponse = $coin->get()->all();

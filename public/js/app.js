@@ -2530,12 +2530,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       coins: [],
       listcountry: [],
+      aftereyear: null,
+      beforeyear: null,
+      searchname: null,
       country: {
         name: null,
         id: null
@@ -2545,6 +2554,10 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.loadCountry();
     this.loadCoin();
+    var urlParams = new URLSearchParams(window.location.search);
+    this.aftereyear = urlParams.get('aftereyear');
+    this.beforeyear = urlParams.get('beforeyear');
+    this.searchname = urlParams.get('searchname'); // this.country.id = urlParams.get('searccountry');
   },
   methods: {
     loadCoin: function loadCoin() {
@@ -48072,7 +48085,14 @@ var render = function () {
         "form",
         { attrs: { action: "" } },
         [
-          _c("input", { attrs: { type: "text", name: "searchname" } }),
+          _c("label", [_vm._v("Номинал/описание")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "text", name: "searchname" },
+            domProps: { value: _vm.searchname },
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v("Страна")]),
           _vm._v(" "),
           _c("multiselect", {
             attrs: {
@@ -48089,9 +48109,33 @@ var render = function () {
             },
           }),
           _vm._v(" "),
+          _c("label", [_vm._v("Год от")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              name: "aftereyear",
+              type: "number",
+              min: "-2000",
+              max: "2022",
+            },
+            domProps: { value: _vm.aftereyear },
+          }),
+          _vm._v(" "),
+          _c("label", [_vm._v("До")]),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              name: "beforeyear",
+              type: "number",
+              min: "-2000",
+              max: "2022",
+            },
+            domProps: { value: _vm.beforeyear },
+          }),
+          _vm._v(" "),
           _c("input", {
             staticClass: "btn btn-success",
-            attrs: { type: "submit", value: "search" },
+            attrs: { type: "submit", value: "Поиск" },
           }),
           _vm._v(" "),
           _c("input", {
