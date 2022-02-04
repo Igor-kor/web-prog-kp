@@ -10,21 +10,33 @@ class MarkController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $mark = Mark::get();
-        if(!$mark){
+
+        $mark = Mark::query();
+        if(!empty($request->searchname))
+            $mark->where('denomination', 'LIKE', "%$request->searchname%");
+        if(!empty($request->searccountry))
+            $mark->where('country_id', $request->searccountry);
+        if(!empty($request->aftereyear))
+            $mark->where('year', '>=', $request->aftereyear);
+        if(!empty($request->beforeyear))
+            $mark->where('year', '<=', $request->beforeyear);
+        if(!empty($request->searchname))
+            $mark->orWhere('features', 'LIKE', "%$request->searchname%");
+        $markres = $mark->get()->all();
+
+        if(!$markres){
             abort(404,'Coin not found!');
         }
-        foreach ($mark as $item){
+        foreach ($markres as $item){
             $item->country;
             $item->images;
         }
-        return $mark;
+        return $markres;
     }
 
     /**
