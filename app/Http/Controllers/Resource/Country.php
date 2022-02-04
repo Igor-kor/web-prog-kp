@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Coin;
+namespace App\Http\Controllers\Resource;
 
-use App\Http\Controllers\Controller;
-use App\Models\Coin;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class CoinController extends Controller
+class Country extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,11 @@ class CoinController extends Controller
      */
     public function index()
     {
-        $coin = Coin::all();
-        if(!$coin){
-            abort(404,'Coin not found!');
-        }
-        return $coin;
+        $country = \App\Models\Country::all();
+        if(!$country)
+            return response('Country not found!',404);
+        return response($country,200);
+        //
     }
 
     /**
@@ -40,6 +39,11 @@ class CoinController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->get('params');
+        $country = new \App\Models\Country();
+        $country->name = $data;
+        $country->save();
+        return response($country,200);
         //
     }
 
@@ -51,11 +55,11 @@ class CoinController extends Controller
      */
     public function show($id)
     {
-        $coin = Coin::find($id);
-        if(!$coin){
+        $country = Country::find($id);
+        if(!$country){
             abort(404,'Coin not found!');
         }
-        return $coin;
+        return $country;
     }
 
     /**

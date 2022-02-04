@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Mark;
+namespace App\Http\Controllers\resource;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MarkController extends Controller
+class Image extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,16 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $images = [];
+        foreach ($request->file('files') as $file ){
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('public/uploads', $imageName);
+            $image = new \App\Models\Image();
+            $image->url = '/storage/uploads/'.$imageName;
+            $image->save();
+            array_push($images,$image);
+        }
+        return response($images, 200);
     }
 
     /**

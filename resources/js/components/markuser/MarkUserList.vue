@@ -1,20 +1,20 @@
 <template>
     <div>
-        <coin-block
-            v-for="coin in coins"
-            v-bind:data="coin"
-            v-bind:key="coin.id"
-        ></coin-block>
+        <mark-user-block
+            v-for="mark in marks"
+            v-bind:data="mark"
+            v-bind:key="mark.id"
+        ></mark-user-block>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-
 export default {
-    data () {
+name: "MarkUserList",
+    data() {
         return {
-            coins: [],
+            marks: [],
         }
     },
     mounted() {
@@ -22,10 +22,9 @@ export default {
     },
     methods: {
         loadCoin() {
-            axios.get('/api/coin')
+            axios.get('/api/markuser')
                 .then(res => {
-                    console.log(res.data);
-                    this.coins = res.data;
+                    this.marks = res.data;
                 });
         }
     }

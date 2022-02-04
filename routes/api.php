@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::middleware('auth')->get('/user', function (Request $request) {
+    return $request->user();
+});
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::apiResources(
     [
-        'coin'=>App\Http\Controllers\Coin\CoinController::class,
-        'mark'=>App\Http\Controllers\Mark\MarkController::class
+        'coin'=>App\Http\Controllers\Resource\CoinController::class,
+        'coinuser'=>App\Http\Controllers\Resource\CoinUser::class,
+        'mark'=>App\Http\Controllers\Resource\MarkController::class,
+        'markuser'=>App\Http\Controllers\Resource\MarkUser::class,
+        'country'=>App\Http\Controllers\Resource\Country::class,
+        'image'=>App\Http\Controllers\Resource\Image::class,
     ]
 );
